@@ -670,6 +670,7 @@
 
     fetch('https://script.google.com/macros/s/AKfycbzGJUALM3kIgAN2pOW0KSpq3l1WDLkZl8p9bZoNl8RXNjKUieQbJaAj30qYMlu_pW9bVQ/exec', {
       method: 'POST',
+      mode: 'no-cors',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
         q1: answers.q1,
