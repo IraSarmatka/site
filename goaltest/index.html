@@ -668,22 +668,21 @@
       }
     };
 
-    fetch('https://script.google.com/macros/s/AKfycbzGJUALM3kIgAN2pOW0KSpq3l1WDLkZl8p9bZoNl8RXNjKUieQbJaAj30qYMlu_pW9bVQ/exec', {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        q1: answers.q1,
-        q1_text: optionTexts.q1[answers.q1],
-        q2: answers.q2,
-        q2_text: optionTexts.q2[answers.q2],
-        q3: answers.q3,
-        q3_text: optionTexts.q3[answers.q3],
-        q4: answers.q4,
-        q4_text: optionTexts.q4[answers.q4],
-        result: key,
-        result_title: result.title
-      })
+    const params = new URLSearchParams({
+      q1: answers.q1,
+      q1_text: optionTexts.q1[answers.q1],
+      q2: answers.q2,
+      q2_text: optionTexts.q2[answers.q2],
+      q3: answers.q3,
+      q3_text: optionTexts.q3[answers.q3],
+      q4: answers.q4,
+      q4_text: optionTexts.q4[answers.q4],
+      result: key,
+      result_title: result.title
+    });
+    fetch('https://script.google.com/macros/s/AKfycbxAvSZZV9ScGT1ZY-0vOfUgEXnxrUvL-DxfhX90JD1vp_x5fIz0CtRMRpMCF4s0ziAkKA/exec?' + params.toString(), {
+      method: 'GET',
+      mode: 'no-cors'
     }).catch(() => {});
   }
 
