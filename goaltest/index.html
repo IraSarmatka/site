@@ -380,10 +380,10 @@
   <!-- QUIZ STATE -->
   <div id="quiz-state">
     <div class="quiz-progress" id="progress-bar">
-      <div class="qp-seg active"></div>
-      <div class="qp-seg active"></div>
-      <div class="qp-seg active"></div>
-      <div class="qp-seg active"></div>
+      <div class="qp-seg"></div>
+      <div class="qp-seg"></div>
+      <div class="qp-seg"></div>
+      <div class="qp-seg"></div>
     </div>
 
     <!-- Q1 -->
@@ -613,6 +613,13 @@
     siblings.forEach(s => s.classList.remove('selected'));
     el.classList.add('selected');
     answers[question] = value;
+
+    // Update progress bar
+    const answered = Object.keys(answers).length;
+    const segs = document.querySelectorAll('.qp-seg');
+    segs.forEach((seg, i) => {
+      seg.classList.toggle('active', i < answered);
+    });
   }
 
   function submitQuiz() {
