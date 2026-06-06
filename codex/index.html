@@ -18,7 +18,7 @@ body{font-family:var(--sans);background:var(--cream);color:var(--text);overflow-
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(250,249,246,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
-.nav-logo{font-family:var(--serif);font-size:1.1rem;font-weight:500;color:var(--text);text-decoration:none;transition:color .2s}
+.nav-logo{font-family:var(--sans);font-size:1.1rem;font-weight:500;color:var(--text);text-decoration:none;transition:color .2s}
 .nav-logo:hover{color:var(--indigo)}
 .nav-links{display:flex;gap:1.75rem;list-style:none}
 .nav-links a{font-size:13px;color:var(--text2);text-decoration:none;transition:color .2s}
@@ -26,11 +26,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2.5rem;display:
 
 /* HERO */
 .hero-bg{width:100%;background:var(--cream)}
-.hero{display:grid;grid-template-columns:1fr 280px;align-items:center;gap:4rem;padding:6rem 2.5rem 3rem;max-width:1080px;margin:0 auto}
+.hero{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:4rem;padding:5.5rem 2.5rem 2.5rem;max-width:1080px;margin:0 auto}
 .hero-tag{display:inline-flex;align-items:center;gap:.6rem;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--indigo);margin-bottom:1.25rem;font-weight:500}
 .hero-tag::before{content:'';width:20px;height:1px;background:var(--indigo)}
 .hero h1{font-family:var(--serif);font-size:clamp(2.6rem,4vw,4rem);font-weight:500;line-height:1.1;color:var(--text);margin-bottom:.875rem}
-.hero h1 em{font-style:italic;color:var(--indigo);font-weight:400}
+.hero h1 em{font-style:normal;color:var(--indigo);font-weight:400}
 .hero-desc{font-size:15px;color:var(--text2);line-height:1.75;max-width:500px;margin-bottom:1.5rem;font-weight:300}
 .hero-actions{display:flex;align-items:stretch;gap:1rem;margin-bottom:0}
 .hero-price{display:inline-flex;align-items:center;gap:1rem;background:var(--indigo-pale);border-radius:3px;padding:.875rem 1.25rem}
@@ -39,7 +39,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2.5rem;display:
 .hero-price-label{font-size:13px;color:var(--indigo);font-weight:400}
 .btn-primary{display:inline-flex;align-items:center;background:var(--indigo);color:#fff;padding:13px 32px;border-radius:3px;font-size:13px;letter-spacing:.06em;text-decoration:none;font-weight:400;transition:all .2s;font-family:var(--sans)}
 .btn-primary:hover{background:var(--indigo-light);transform:translateY(-1px)}
-.hero-photo{display:flex;justify-content:center;align-items:center}
+.hero-photo{display:flex;justify-content:center;align-items:center;place-self:center;width:100%;}
 .photo-circle{width:240px;height:240px;border-radius:50%;overflow:hidden;border:3px solid var(--indigo-pale);box-shadow:0 0 0 6px rgba(37,99,235,0.08)}
 .photo-circle img{width:100%;height:100%;object-fit:cover;object-position:center top}
 
@@ -51,7 +51,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2.5rem;display:
 .section-tag{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--indigo);font-weight:500}
 .section-line::after{content:'';flex:1;height:1px;background:var(--border)}
 .section-title{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:500;color:var(--text);margin-bottom:1.5rem;line-height:1.15}
-.section-title em{font-style:italic;color:var(--indigo);font-weight:400}
+.section-title em{font-style:normal;color:var(--indigo);font-weight:400}
 
 /* WHAT'S INSIDE */
 .inside-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
@@ -80,10 +80,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2.5rem;display:
 .result-box strong{color:#fff;font-weight:500}
 
 /* CTA */
-.cta-band{background:var(--indigo);padding:4rem 2.5rem;text-align:center;width:100%}
+.cta-band{background:var(--indigo);padding:2rem 2.5rem;text-align:center;width:100%}
 .cta-inner{max-width:600px;margin:0 auto}
-.cta-band h2{font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:500;color:#fff;margin-bottom:.5rem}
-.cta-band p{color:rgba(255,255,255,0.7);font-size:14px;margin-bottom:2rem;font-weight:300}
+.cta-band h2{font-family:var(--serif);font-size:2rem;font-weight:500;color:#fff;margin-bottom:.5rem}
+.cta-band p{color:rgba(255,255,255,0.7);font-size:14px;margin-bottom:1rem;font-weight:300}
 .btn-cta{display:inline-block;background:#fff;color:var(--indigo);padding:14px 36px;border-radius:3px;font-size:13px;letter-spacing:.06em;text-decoration:none;font-weight:500;transition:all .2s;font-family:var(--sans)}
 .btn-cta:hover{background:var(--indigo-pale);transform:translateY(-1px)}
 
@@ -113,6 +113,13 @@ footer{padding:2rem 2.5rem;max-width:1080px;margin:0 auto;display:flex;align-ite
   .chapter-item{grid-template-columns:1fr}
   .chapter-num{font-size:1.1rem}
 }
+
+em { font-style: normal; }
+
+/* MARQUEE */
+.marquee-track{display:inline-block;animation:marquee 25s linear infinite}
+.marquee-text{font-family:var(--sans);font-size:13px;font-weight:400;letter-spacing:.12em;color:#fff;}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 </style>
 
 <!-- Google tag (gtag.js) -->
@@ -158,6 +165,13 @@ footer{padding:2rem 2.5rem;max-width:1080px;margin:0 auto;display:flex;align-ite
   </div>
 </div>
 </div>
+
+<div style="background:var(--indigo);width:100%;padding:1.25rem 0;overflow:hidden;white-space:nowrap">
+  <div class="marquee-track">
+    <span class="marquee-text" data-ua="Все в житті — це комунікація. З собою або з іншими. Питання лише підходу.&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;Все в житті — це комунікація. З собою або з іншими. Питання лише підходу.&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;Все в житті — це комунікація. З собою або з іншими. Питання лише підходу.&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;Все в житті — це комунікація. З собою або з іншими. Питання лише підходу.&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;" data-en="Everything in life is communication. With yourself or others. It's only a matter of approach.&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;Everything in life is communication. With yourself or others. It's only a matter of approach.&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;Everything in life is communication. With yourself or others. It's only a matter of approach.&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;Everything in life is communication. With yourself or others. It's only a matter of approach.&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;">Все в житті — це комунікація. З собою або з іншими. Питання лише підходу.&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;Все в житті — це комунікація. З собою або з іншими. Питання лише підходу.&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;Все в житті — це комунікація. З собою або з іншими. Питання лише підходу.&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;Все в житті — це комунікація. З собою або з іншими. Питання лише підходу.&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;</span>
+  </div>
+</div>
+
 
 <!-- ЩО ВСЕРЕДИНІ -->
 <div class="section-bg alt" id="inside">
