@@ -201,6 +201,18 @@ nav{
   .yesno-inner{padding:3rem 1.5rem}
 }
 
+/* MARQUEE */
+.marquee-track{display:inline-block;animation:marquee 25s linear infinite}
+.marquee-text{font-family:var(--serif);font-size:1.2rem;font-style:italic;color:#fff;font-weight:400;opacity:.95}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* REVIEWS */
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.review-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:1.5rem;display:flex;flex-direction:column;gap:.75rem}
+.review-quote{font-family:var(--serif);font-size:3rem;color:var(--indigo);opacity:.25;line-height:.8;display:block}
+.review-text{font-family:var(--serif);font-size:1.05rem;font-style:italic;color:var(--text);line-height:1.6;flex:1}
+.review-service{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo);font-weight:500;border-top:1px solid var(--border);padding-top:.75rem;margin-top:.25rem}
+
 /* ABOUT */
 .about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:4rem;align-items:start}
 .about-text p{font-size:15px;color:var(--text2);line-height:1.8;margin-bottom:.875rem}
@@ -229,6 +241,11 @@ nav{
   background:#fff;border:1px solid var(--border);
   border-radius:4px;padding:1.75rem 1.5rem;
   transition:border-color .2s,box-shadow .2s;
+}
+.service-card.service-featured{
+  border-color:var(--indigo);
+  box-shadow:0 4px 24px rgba(37,99,235,0.15);
+  position:relative;
 }
 .service-card:hover{border-color:var(--indigo-light);box-shadow:0 4px 20px rgba(43,92,230,0.08)}
 .service-icon{
@@ -271,15 +288,10 @@ nav{
 }
 
 /* CTA */
-.cta-band{
-  background:var(--indigo);
-  padding:4.5rem 2.5rem;text-align:center;
-}
-.cta-band h2{
-  font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.6rem);
-  font-weight:500;color:#fff;margin-bottom:.625rem;
-}
-.cta-band p{color:rgba(255,255,255,0.7);font-size:15px;margin-bottom:2rem;font-weight:300}
+.cta-band{background:var(--indigo);padding:2rem 2.5rem;text-align:center}
+.cta-band h2{font-family:var(--serif);font-size:1.5rem;font-weight:500;color:#fff;margin-bottom:.4rem}
+.cta-band p{color:rgba(255,255,255,0.7);font-size:13px;font-weight:300}
+.cta-note{font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:.04em}
 .btn-cta{
   display:inline-block;background:#fff;color:var(--indigo);
   padding:14px 32px;border-radius:3px;font-size:13px;
@@ -316,6 +328,7 @@ footer{
 
   .about-personal-grid{grid-template-columns:220px 1fr;gap:2rem}
   .about-pillars{grid-template-columns:1fr 1fr}
+  .reviews-grid{grid-template-columns:1fr 1fr}
   .services-grid{grid-template-columns:1fr 1fr}
   .requests-grid{grid-template-columns:1fr 1fr}
   .topics-grid{grid-template-columns:1fr 1fr}
@@ -336,6 +349,7 @@ footer{
   .photo-circle-wrap{width:180px;height:180px}
 
   .about-personal-grid{grid-template-columns:1fr!important;gap:1.5rem}
+  .reviews-grid{grid-template-columns:1fr}
   .about-photo-left{width:100%;align-items:center}
   .about-stats-left{width:210px}
   .about-shirt-circle{width:180px;height:180px}
@@ -382,7 +396,7 @@ footer{
 <div class="hero">
   <div class="hero-left">
     <h1 data-ua="Ірина<br><em>Пєтрова</em>" data-en="Iryna<br><em>Pietrova</em>">Ірина<br><em>Пєтрова</em></h1>
-    <p class="hero-tagline" data-ua="Все в житті — це комунікація. З собою або з іншими. Питання лише підходу." data-en="Everything in life is communication. With yourself or with others. It's all about approach.">Все в житті — це комунікація. З собою або з іншими. Питання лише підходу.</p>
+    <p class="hero-tagline" data-ua="Виходиш з конкретним рішенням і наступним кроком." data-en="You leave with a concrete decision and a next step.">Виходиш з конкретним рішенням і наступним кроком.</p>
     <p class="hero-sub" data-ua="Коучиня з комунікації та кармічного менеджменту. Допомагаю формувати цілі, програмувати мозок на їх досягнення, вирішувати конфлікти, спілкуватись будь з ким будь де." data-en="Communication and karmic management coach. I help set goals, reprogram your mind to achieve them, resolve conflicts and communicate with anyone anywhere.">Коучиня з комунікації та кармічного менеджменту. Допомагаю формувати цілі, програмувати мозок на їх досягнення, вирішувати конфлікти, спілкуватись будь з ким будь де.</p>
     <div class="hero-actions">
       <a href="https://t.me/irynapietrova" target="_blank" class="btn-primary" data-ua="Записатись на сесію →" data-en="Book a session →">Записатись на сесію →</a>
@@ -433,6 +447,13 @@ footer{
 
   </div>
 </section></div>
+
+<!-- PHILOSOPHY MARQUEE -->
+<div style="background:var(--indigo);width:100%;padding:1.25rem 0;overflow:hidden;white-space:nowrap">
+  <div class="marquee-track">
+    <span class="marquee-text">Все в житті — це комунікація. З собою або з іншими. Питання лише підходу.&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;Все в житті — це комунікація. З собою або з іншими. Питання лише підходу.&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;Все в житті — це комунікація. З собою або з іншими. Питання лише підходу.&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;Все в житті — це комунікація. З собою або з іншими. Питання лише підходу.&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;</span>
+  </div>
+</div>
 
 <div class="section-bg alt"><section class="section">
   <div class="section-line"><span class="section-tag" data-ua="Мій підхід" data-en="My approach">Мій підхід</span></div>
@@ -503,7 +524,7 @@ footer{
         <div class="service-desc" data-ua="Аналізуємо як ти створила те що є зараз — і що зробити щоб створити те що хочеш. Одна зустріч 90 хвилин + детальний PDF з покроковим планом дій після." data-en="We analyse how you created what you have now — and what to do to create what you want. One 90-minute session + detailed PDF with step-by-step action plan.">Аналізуємо як ти створила те що є зараз — і що зробити щоб створити те що хочеш. Одна зустріч 90 хвилин + детальний PDF з покроковим планом дій після.</div>
         <span class="service-price">200 €</span>
       </div>
-      <div class="service-card">
+      <div class="service-card service-featured">
         <div class="service-icon">🃏</div>
         <div class="service-title" data-ua="Розбір з метафоричними картами" data-en="Metaphorical cards session">Розбір з метафоричними картами</div>
         <div class="service-desc" data-ua="Одна зустріч 50 хвилин. Детально аналізуємо ситуацію, запит та шляхи досягнення мети. Потужний інструмент для швидких інсайтів." data-en="One 50-minute session. Deep analysis of your situation, request and paths to the goal. A powerful tool for fast insights.">Одна зустріч 50 хвилин. Детально аналізуємо ситуацію, запит та шляхи досягнення мети. Потужний інструмент для швидких інсайтів.</div>
@@ -517,6 +538,41 @@ footer{
       </div>
     </div>
   </div>
+</div>
+
+<!-- ВІДГУКИ -->
+<div class="section-bg alt">
+<div class="section">
+  <div class="section-line"><span class="section-tag" data-ua="Відгуки" data-en="Reviews">Відгуки</span></div>
+  <h2 class="section-title" data-ua="Що кажуть <em>клієнти</em>" data-en="What <em>clients say</em>">Що кажуть <em>клієнти</em></h2>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <span class="review-quote">"</span>
+      <p class="review-text">Вона без перебільшень перевернула моє уявлення щодо спілкування з собою. Окрім чіткого плану дій — я отримала кроки як лагідно домовлятись з собою.</p>
+      <span class="review-service">Сесія з метафоричними картами</span>
+    </div>
+    <div class="review-card">
+      <span class="review-quote">"</span>
+      <p class="review-text">Я вийшла саме на ті питання, що мене гальмують найбільше в житті. Тривожність відступає, я більш продуктивна.</p>
+      <span class="review-service">Трансформаційна гра</span>
+    </div>
+    <div class="review-card">
+      <span class="review-quote">"</span>
+      <p class="review-text">Я прийшла з запитом «як знайти свою точку розвитку» — і отримала відповідь. З'явилось бажання почати з початку, дивлячись на ситуацію по іншому.</p>
+      <span class="review-service">Трансформаційна гра</span>
+    </div>
+    <div class="review-card">
+      <span class="review-quote">"</span>
+      <p class="review-text">Була скептиком і довго вибирала — але все зійшлося. 4 кроки і всі відповіді, що я на правильному шляху.</p>
+      <span class="review-service">Трансформаційна гра</span>
+    </div>
+    <div class="review-card">
+      <span class="review-quote">"</span>
+      <p class="review-text">Побачила свої сліпі зони. Відмінила два страшні рішення, повернула багато енергії-жити.</p>
+      <span class="review-service">Сесія з метафоричними картами</span>
+    </div>
+  </div>
+</div>
 </div>
 
 <div class="section-bg"><section class="section" id="topics">
@@ -544,7 +600,7 @@ footer{
 
 <div class="cta-band" id="book">
   <h2 data-ua="Готові почати?" data-en="Ready to start?">Готові почати?</h2>
-  <p data-ua="Напишіть мені в Telegram або Instagram — обговоримо з чого почати." data-en="Message me on Telegram or Instagram — let's figure out where to start.">Напишіть мені в Telegram або Instagram — обговоримо з чого почати.</p>
+  <p data-ua="Перше повідомлення ні до чого не зобов'язує — просто напишіть." data-en="Your first message doesn't commit you to anything — just write.">Перше повідомлення ні до чого не зобов'язує — просто напишіть.</p>
 </div>
 
 <footer>
