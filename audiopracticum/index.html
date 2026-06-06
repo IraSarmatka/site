@@ -77,9 +77,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2.5rem;display:
 .if-item::before{content:'→';color:var(--indigo);flex-shrink:0;font-size:13px;margin-top:2px}
 
 /* RESULT */
-.result-box{background:var(--indigo);border-radius:4px;padding:2rem 2.5rem;color:#fff}
-.result-box p{font-size:16px;line-height:1.75;font-weight:300;color:rgba(255,255,255,0.9)}
-.result-box strong{color:#fff;font-weight:500}
+.result-box{background:var(--cream);border:1px solid var(--indigo);border-radius:3px;padding:1.25rem 1.5rem;display:flex;gap:.75rem;align-items:flex-start}
+.result-box-icon{font-size:18px;flex-shrink:0;margin-top:2px}
+.result-box p{font-size:13.5px;color:var(--text2);line-height:1.55;font-weight:300}
+.result-box strong{color:var(--text);font-weight:500}
 
 /* CTA */
 .cta-band{background:var(--indigo);padding:2rem 2.5rem;text-align:center;width:100%}
@@ -102,6 +103,8 @@ footer{padding:2rem 2.5rem;max-width:1080px;margin:0 auto;display:flex;align-ite
   .nav-links{display:none}
   .hero{grid-template-columns:1fr;padding:5.5rem 1.5rem 2.5rem;gap:2rem;text-align:center}
   .hero-photo{justify-content:center}
+  .hero-actions{justify-content:center}
+  .hero-desc{margin-left:auto;margin-right:auto}
   .section{padding:2.5rem 1.5rem}
   .outcomes-grid{grid-template-columns:1fr 1fr}
   .if-grid{grid-template-columns:1fr}
@@ -290,6 +293,7 @@ em { font-style: normal; }
   <div class="section-line"><span class="section-tag">Результат</span></div>
   <h2 class="section-title">Що зміниться<br><em>після</em></h2>
   <div class="result-box">
+    <span class="result-box-icon">🔥</span>
     <p>Ти зрозумієш як <strong>просити, відмовляти, коментувати, робити пропозиції і артикулювати</strong> — щоб тебе розуміли і щоб отримувати «так».</p>
   </div>
 </div>
