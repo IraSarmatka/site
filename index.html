@@ -87,6 +87,13 @@ nav{
   font-weight:400;transition:all .2s;font-family:var(--sans);
 }
 .btn-ghost:hover{border-color:var(--indigo);color:var(--indigo)}
+.btn-products{
+  display:inline-block;border:none;background:transparent;
+  color:var(--text3);padding:13px 4px;font-size:13px;
+  letter-spacing:.06em;text-decoration:none;
+  font-weight:400;transition:color .2s;font-family:var(--sans);
+}
+.btn-products:hover{color:var(--indigo)}
 .hero-socials{display:flex;gap:.625rem}
 .social-link{
   display:inline-flex;align-items:center;
@@ -403,6 +410,7 @@ em { font-style: normal; }
     <ul class="nav-links">
       <li><a href="#about" data-ua="Про мене" data-en="About">Про мене</a></li>
       <li><a href="#services" data-ua="Послуги" data-en="Services">Послуги</a></li>
+      <li><a href="https://irynapietrova.com/products/" data-ua="Продукти" data-en="" class="nav-products-link">Продукти</a></li>
       <li><a href="#topics" data-ua="Напрямки" data-en="Focus">Напрямки</a></li>
       <li><a href="#book" data-ua="Записатись" data-en="Book">Записатись</a></li>
     </ul>
@@ -422,6 +430,7 @@ em { font-style: normal; }
     <div class="hero-actions">
       <a href="https://t.me/irynapietrova" target="_blank" class="btn-primary" data-ua="Записатись на сесію →" data-en="Book a session →">Записатись на сесію →</a>
       <a href="#about" class="btn-ghost" data-ua="Дізнатись більше" data-en="Learn more">Дізнатись більше</a>
+      <a href="https://irynapietrova.com/products/" class="btn-products btn-products-ua" data-ua="Продукти →" data-en="">Продукти →</a>
     </div>
     <div class="hero-socials">
       <a href="https://t.me/irynapietrova" target="_blank" class="social-link">Telegram</a>
@@ -644,6 +653,15 @@ function setLang(lang) {
     const tag = el.tagName;
     if (['A','BUTTON','SPAN','DIV','P','H1','H2','LI'].includes(tag)) el.innerHTML = val;
   });
+  // UA-only elements
+  document.querySelectorAll('.btn-products-ua, .nav-products-link').forEach(el => {
+    el.style.display = lang === 'uk' ? '' : 'none';
+  });
+  document.querySelectorAll('.nav-products-link').closest
+    && document.querySelectorAll('.nav-products-link').forEach(el => {
+      const li = el.closest('li');
+      if (li) li.style.display = lang === 'uk' ? '' : 'none';
+    });
 }
 </script>
 </body>
