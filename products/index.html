@@ -71,6 +71,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .section-line{display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem}
 .section-line::after{content:'';flex:1;height:1px;background:var(--border)}
 .section-tag{font-size:12px;letter-spacing:.12em;color:var(--text3);text-transform:uppercase;font-weight:400;white-space:nowrap}
+.requests-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:3px;overflow:hidden;margin-top:1.5rem}
+.request-item{background:var(--cream);padding:1.25rem 1.5rem;font-size:14px;color:var(--text2);line-height:1.6;font-weight:300;display:flex;gap:.75rem;align-items:flex-start;transition:background .2s}
+.request-item:hover{background:var(--indigo-mist)}
+.request-quote{color:var(--indigo);font-size:1.1rem;font-family:var(--serif);flex-shrink:0;line-height:1;margin-top:2px}
+@media(max-width:900px){.requests-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.requests-grid{grid-template-columns:1fr}}
 .section-title{font-family:var(--serif);font-size:clamp(1.9rem,3vw,2.8rem);font-weight:500;color:var(--text);line-height:1.2;margin-bottom:2rem}
 
 .products-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
@@ -147,6 +153,22 @@ footer{background:var(--cream);border-top:1px solid var(--border);padding:2rem;d
     <span class="marquee-text">Все в житті — це комунікація. З собою або з іншими. Питання лише підходу.&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;Все в житті — це комунікація. З собою або з іншими. Питання лише підходу.&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;Все в житті — це комунікація. З собою або з іншими. Питання лише підходу.&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;Все в житті — це комунікація. З собою або з іншими. Питання лише підходу.&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;</span>
   </div>
 </div>
+
+<div class="section-bg alt"><section class="section">
+  <div class="section-line"><span class="section-tag">Для кого це</span></div>
+  <h2 class="section-title">Впізнаєш<br><em>себе?</em></h2>
+  <div class="requests-grid">
+    <div class="request-item"><span class="request-quote">"</span><span>Не відповідають — і я вже накручую що щось не так</span></div>
+    <div class="request-item"><span class="request-quote">"</span><span>Мене постійно не так розуміють, витрачаю час на пояснення</span></div>
+    <div class="request-item"><span class="request-quote">"</span><span>Хочу попросити підвищення — і тягну поки місце не займе хтось інший</span></div>
+    <div class="request-item"><span class="request-quote">"</span><span>Невинна розмова часто закінчується сваркою</span></div>
+    <div class="request-item"><span class="request-quote">"</span><span>Відповідаю — і одразу шкодую: вийшло різко, емоційно або незрозуміло</span></div>
+    <div class="request-item"><span class="request-quote">"</span><span>В конфліктах ступор і часто отримую відмову</span></div>
+    <div class="request-item"><span class="request-quote">"</span><span>Знаю що треба сказати — але мовчу, бо не хочу образити</span></div>
+    <div class="request-item"><span class="request-quote">"</span><span>Після розмови прокручую у голові як треба було відповісти</span></div>
+    <div class="request-item"><span class="request-quote">"</span><span>Є цікаві ідеї але не озвучую — і потім шкодую</span></div>
+  </div>
+</section></div>
 
 <div class="section-bg alt">
 <div class="section">
