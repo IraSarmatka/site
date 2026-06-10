@@ -128,14 +128,15 @@ nav{
 .section-bg{width:100%;background:var(--cream)}
 .section-bg.alt{background:var(--indigo-mist)}
 .section{padding:3rem 2.5rem;max-width:1080px;margin:0 auto}
-.section-line{display:flex;align-items:center;gap:1rem;margin-bottom:.5rem}
+.section-line{display:flex;align-items:center;gap:1.25rem;margin-bottom:1.75rem}
 .section-tag{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--indigo);font-weight:500}
 .section-line::after{content:'';flex:1;height:1px;background:var(--border)}
 .section-title{
   font-family:var(--serif);
-  font-size:clamp(1.9rem,3vw,2.8rem);
+  font-size:clamp(1.6rem,2.6vw,2.2rem);
   font-weight:500;color:var(--text);
-  margin-bottom:1.5rem;line-height:1.15;
+  margin-bottom:0;line-height:1.15;
+  white-space:nowrap;
 }
 .section-title em{font-style:normal;color:var(--indigo);font-weight:400}
 
@@ -344,6 +345,10 @@ footer{
 }
 
 /* MOBILE max-width:480px */
+@media(max-width:600px){
+  .section-title{white-space:normal}
+  .section-line::after{display:none}
+}
 @media(max-width:480px){
   .hero{padding:5rem 1.25rem 2rem;text-align:center}
   .hero h1{font-size:2.4rem}
@@ -365,7 +370,7 @@ footer{
   .topics-grid{grid-template-columns:1fr}
   .requests-grid{grid-template-columns:1fr}
 
-  .section-title{font-size:1.7rem}
+  .section-title{font-size:1.6rem}
   .photo-badge{position:static;margin-top:.75rem}
   .cta-band{padding:3rem 1.25rem}
 }
@@ -459,7 +464,7 @@ em { font-style: normal; }
 </div>
 
 <div class="section-bg alt"><section class="section" id="recognize">
-  <div class="section-line" style="margin-top:2.5rem"><span class="section-tag" data-ua="Впізнаєш себе?" data-en="Does this sound like you?">Впізнаєш себе?</span></div>
+  <div class="section-line" style="margin-top:2.5rem"><h2 class="section-title" data-ua="Впізнаєш <em>себе?</em>" data-en="Does this sound <em>like you?</em>">Впізнаєш <em>себе?</em></h2></div>
   <div class="requests-grid">
     <div class="request-item"><span class="request-quote">"</span><span data-ua="Знаю що треба робити. Не роблю." data-en="I know what to do. I don't do it.">Знаю що треба робити. Не роблю.</span></div>
     <div class="request-item"><span class="request-quote">"</span><span data-ua="Не бачу куди рости далі, уперлась в стелю" data-en="I don't see where to grow next, I've hit a ceiling">Не бачу куди рости далі, уперлась в стелю</span></div>
@@ -471,7 +476,7 @@ em { font-style: normal; }
 </section></div>
 
 <div class="section-bg"><section class="section" id="about" style="padding-bottom:1.5rem">
-  <div class="section-line"><span class="section-tag" data-ua="Про мене" data-en="About me">Про мене</span></div>
+  <div class="section-line"><h2 class="section-title" data-ua="Гуморна буддистка <em>з хребтом</em>" data-en="A humorous Buddhist <em>with a backbone</em>">Гуморна буддистка <em>з хребтом</em></h2></div>
   <div class="about-personal-grid">
     <div class="about-photo-left">
     <div class="about-stats-left">
@@ -485,7 +490,6 @@ em { font-style: normal; }
     </div>
   </div>
   <div class="about-personal-text">
-      <h2 class="section-title" style="margin-bottom:1.25rem" data-ua="Гуморна буддистка<br><em>з хребтом</em>" data-en="A humorous Buddhist<br><em>with a backbone</em>">Гуморна буддистка<br><em>з хребтом</em></h2>
       <p class="about-personal-p" data-ua="Починала з продажу броньованих дверей — і вже тоді зрозуміла, що люди купують не двері, а довіру. У банку стажирувала колег і навчала працювати з найскладнішими клієнтами так, що вони просили тільки до мене." data-en="Started selling armoured doors — and already then understood that people buy not doors, but trust. At the bank I trained colleagues and taught them to work with the most difficult clients so that they asked for me specifically.">Починала з продажу броньованих дверей — і вже тоді зрозуміла, що люди купують не двері, а довіру. У банку навчала колег працювати з найскладнішими клієнтами.</p>
       <p class="about-personal-p" data-ua="У 30 підняла англійську з нижче середнього до рівня думаю англійською, отримала CELTA і пішла викладати в GreenForest. Паралельно освоїла коучинг — щоб бути кращим викладачем. Виявилось, що це змінило все." data-en="At 30 raised my English from below intermediate to thinking in English, got my CELTA and went to teach at GreenForest. Alongside that I trained as a coach — to become a better teacher. Turned out that changed everything.">У 30 підняла англійську з нижче середнього до рівня думаю англійською, отримала CELTA і пішла викладати в GreenForest. За 2 роки стала старшим викладачем. Паралельно освоїла коучинг. Виявилось, що це змінило все.</p>
       <p class="about-personal-p" data-ua="Зараз — операційна менеджерка, методистка і головна кураторка в команді Анни Баум у найповнішому AI-курсі України. Допомагаю людям не просто освоїти інструменти, а розібратись як рухатись до своїх цілей. Бо інструмент у пилючній шафі нікому не допомагає." data-en="Now — operations manager, methodologist and head curator on Anna Baum's team at Ukraine's most comprehensive AI course. I help people not just master tools, but figure out how to move toward their goals. Because a tool gathering dust helps no one.">Зараз — операційна менеджерка, методистка і головна кураторка в команді Анни Баум у найповнішому AI-курсі України. Допомагаю людям освоїти сучасні інструменти та рухатись до своїх цілей.</p>
@@ -498,7 +502,7 @@ em { font-style: normal; }
 </section></div>
 
 <div class="section-bg"><section class="section" id="topics">
-  <h2 class="section-title" data-ua="З чим я працюю" data-en="What I work with">З чим я працюю</h2>
+  <div class="section-line"><h2 class="section-title" data-ua="З чим я <em>працюю</em>" data-en="What I <em>work with</em>">З чим я <em>працюю</em></h2></div>
   <div class="topics-grid">
     <div class="topic-pill" data-ua="Зміна сфери діяльності — знайти своє і зробити крок" data-en="Career change — find your path and take the step">Зміна сфери діяльності — знайти своє і зробити крок</div>
     <div class="topic-pill" data-ua="Нічого не встигаю — хаос, розпорошеність, відсутність системи" data-en="No time for anything — chaos, scattered focus, no system">Нічого не встигаю — хаос, розпорошеність, відсутність системи</div>
@@ -514,7 +518,7 @@ em { font-style: normal; }
 <!-- YES / NO -->
 <div class="yesno-bg">
   <div class="yesno-inner">
-    <div class="section-line"><span class="section-tag" data-ua="Чесно про роботу зі мною" data-en="Honest about working together">Чесно про роботу зі мною</span></div>
+    <div class="section-line"><h2 class="section-title" data-ua="Чесно про <em>роботу зі мною</em>" data-en="Honest about <em>working together</em>">Чесно про <em>роботу зі мною</em></h2></div>
     <div class="yesno-grid">
       <div class="yes-block">
         <div class="yesno-head">✓ <span data-ua="Буде" data-en="You will get">Буде</span></div>
@@ -541,8 +545,7 @@ em { font-style: normal; }
 </div>
 
 <div class="section-bg alt"><section class="section">
-  <div class="section-line"><span class="section-tag" data-ua="Мій підхід" data-en="My approach">Мій підхід</span></div>
-  <h2 class="section-title" data-ua="Практика <em>без ілюзій</em>" data-en="Practice <em>without illusions</em>">Практика <em>без ілюзій</em></h2>
+  <div class="section-line"><h2 class="section-title" data-ua="Практика <em>без ілюзій</em>" data-en="Practice <em>without illusions</em>">Практика <em>без ілюзій</em></h2></div>
 
   <div class="about-pillars">
     <div class="pillar-card">
@@ -566,7 +569,7 @@ em { font-style: normal; }
 
 <div class="services-bg" id="services">
   <div class="services-inner">
-    <div class="section-line"><span class="section-tag" data-ua="Послуги" data-en="Services">Послуги</span></div>
+    <div class="section-line"><h2 class="section-title" data-ua="Послуги" data-en="Services">Послуги</h2></div>
     <div class="services-grid">
       <div class="service-card">
         <div class="service-icon">🎯</div>
@@ -599,8 +602,7 @@ em { font-style: normal; }
 <!-- ВІДГУКИ -->
 <div class="section-bg alt">
 <div class="section">
-  <div class="section-line"><span class="section-tag" data-ua="Відгуки" data-en="Reviews">Відгуки</span></div>
-  <h2 class="section-title" data-ua="Що кажуть <em>клієнти</em>" data-en="What <em>clients say</em>">Що кажуть <em>клієнти</em></h2>
+  <div class="section-line"><h2 class="section-title" data-ua="Що кажуть <em>клієнти</em>" data-en="What <em>clients say</em>">Що кажуть <em>клієнти</em></h2></div>
   <div class="reviews-grid">
     <div class="review-card">
       <span class="review-quote">"</span>
