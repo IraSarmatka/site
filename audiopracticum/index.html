@@ -48,18 +48,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2.5rem;display:
 .hero-photo{display:flex;flex-direction:column;gap:1rem;justify-content:center;align-items:center;place-self:center;width:100%;}
 .photo-circle{width:240px;height:240px;border-radius:50%;overflow:hidden;border:3px solid var(--indigo-pale);box-shadow:0 0 0 6px rgba(37,99,235,0.08)}
 .photo-circle img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
+
+/* SECTION */
 .photo-badge{background:#fff;border:1px solid var(--border);border-radius:3px;padding:.875rem 1.25rem;box-shadow:0 4px 20px rgba(37,99,235,0.1);text-align:center}
 .photo-badge-tag{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--indigo);font-weight:500}
 .photo-badge-name{font-family:var(--sans);font-size:13px;font-weight:500}
-
-/* SECTION */
+.section-cta{text-align:center;margin-top:2.25rem}
 .section-bg{width:100%}
 .section-bg.alt{background:var(--indigo-mist)}
 .section{padding:3rem 2.5rem;max-width:1080px;margin:0 auto}
-.section-line{display:flex;align-items:center;gap:1rem;margin-bottom:.5rem}
+.section-line{display:flex;align-items:center;gap:1.25rem;margin-bottom:1.75rem}
 .section-tag{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--indigo);font-weight:500}
 .section-line::after{content:'';flex:1;height:1px;background:var(--border)}
-.section-title{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:500;color:var(--text);margin-bottom:1.5rem;line-height:1.15}
+.section-title{font-family:var(--serif);font-size:clamp(1.6rem,2.6vw,2.2rem);font-weight:500;color:var(--text);margin-bottom:0;line-height:1.15;white-space:nowrap}
 .section-title em{font-style:normal;color:var(--indigo);font-weight:400}
 
 /* OUTCOMES */
@@ -115,6 +116,10 @@ footer{padding:2rem 2.5rem;max-width:1080px;margin:0 auto;display:flex;align-ite
   .outcomes-grid{grid-template-columns:1fr 1fr}
   .if-grid{grid-template-columns:1fr}
   footer{flex-direction:column;gap:1rem;text-align:center;padding:1.75rem 1.5rem}
+}
+@media(max-width:600px){
+  .section-title{white-space:normal}
+  .section-line::after{display:none}
 }
 @media(max-width:480px){
   .hero h1{font-size:2.4rem}
@@ -248,8 +253,7 @@ em { font-style: normal; }
 <!-- ДЛЯ КОГО -->
 <div class="section-bg alt" id="if">
 <div class="section">
-  <div class="section-line"><span class="section-tag">Для кого це</span></div>
-  <h2 class="section-title">Впізнаєш<br><em>себе?</em></h2>
+  <div class="section-line"><h2 class="section-title">Впізнаєш <em>себе?</em></h2></div>
   <div class="if-grid">
     <div class="if-item">Тобі не відповідають — і ти починаєш накручувати що щось не так</div>
     <div class="if-item">Тебе постійно не так розуміють, через це втрачаєш час</div>
@@ -259,13 +263,14 @@ em { font-style: normal; }
     <div class="if-item">Відповідаєш і потім шкодуєш — вийшло різко, емоційно або незрозуміло</div>
     <div class="if-item">Впадаєш в ступор в конфліктах і часто отримуєш відмови</div>
   </div>
+  <div class="section-cta"><a href="https://secure.wayforpay.com/button/b241522e2c780" target="_blank" class="btn-primary">Купити за 35 € →</a></div>
+</div>
 </div>
 
 <!-- ЩО ОТРИМАЄШ -->
 <div class="section-bg">
 <div class="section">
-  <div class="section-line"><span class="section-tag">Що отримаєш</span></div>
-  <h2 class="section-title">Після прослуховування<br><em>ти зможеш</em></h2>
+  <div class="section-line"><h2 class="section-title">Після прослуховування <em>ти зможеш</em></h2></div>
   <div class="outcomes-grid">
     <div class="outcome-item"><span class="outcome-icon">🗣️</span><p>Давати і отримувати інформацію чітко — без "не так зрозуміли"</p></div>
     <div class="outcome-item"><span class="outcome-icon">🙏</span><p>Просити ресурси, час і допомогу без маніпуляцій і позиції жертви</p></div>
@@ -276,14 +281,14 @@ em { font-style: normal; }
     <div class="outcome-item"><span class="outcome-icon">🔥</span><p>Деескалувати конфлікт або закрити його красиво</p></div>
     <div class="outcome-item"><span class="outcome-icon">📱</span><p>Висловлювати думку в соцмережах не спалюючи репутацію</p></div>
   </div>
+  <div class="section-cta"><a href="https://secure.wayforpay.com/button/b241522e2c780" target="_blank" class="btn-primary">Купити за 35 € →</a></div>
 </div>
 </div>
 
 <!-- ПРОГРАМА -->
 <div class="section-bg alt" id="program">
 <div class="section">
-  <div class="section-line"><span class="section-tag">Програма</span></div>
-  <h2 class="section-title">10 подкастів —<br><em>10 навичок</em></h2>
+  <div class="section-line"><h2 class="section-title">10 подкастів — <em>10 навичок</em></h2></div>
   <div class="episodes-list">
     <div class="episode-card"><div class="episode-num">01</div><div><div class="episode-title">Інфообмін і ясність (ТЗ без болю)</div><div class="episode-desc">Як давати і отримувати інформацію, уточнювати, перевіряти розуміння — щоб не було "не так зрозуміли"</div></div></div>
     <div class="episode-card"><div class="episode-num">02</div><div><div class="episode-title">Прохання, які працюють</div><div class="episode-desc">Як просити ресурси, час, увагу і допомогу без маніпуляцій, без позиції жертви, без тиску</div></div></div>
@@ -296,15 +301,15 @@ em { font-style: normal; }
     <div class="episode-card"><div class="episode-num">09</div><div><div class="episode-title">Конфлікт, який уже виник: розрулити або закрити красиво</div><div class="episode-desc">Деескалація, переговори, повернення до домовленостей, "ремонт" або вихід з гідністю</div></div></div>
     <div class="episode-card"><div class="episode-num">10</div><div><div class="episode-title">Комунікація в соцмережах: позиція без хейту</div><div class="episode-desc">Як висловлювати думку на гостре, не бути токсичною і не спалювати професійний образ</div></div></div>
   </div>
+  <div class="section-cta"><a href="https://secure.wayforpay.com/button/b241522e2c780" target="_blank" class="btn-primary">Купити за 35 € →</a></div>
 </div>
 </div>
-</div>
+
 
 <!-- РЕЗУЛЬТАТ -->
 <div class="section-bg" id="result">
 <div class="section">
-  <div class="section-line"><span class="section-tag">Результат</span></div>
-  <h2 class="section-title">Що зміниться<br><em>після</em></h2>
+  <div class="section-line"><h2 class="section-title">Що зміниться <em>після</em></h2></div>
   <div class="result-box">
     <span class="result-box-icon">🔥</span>
     <p>Ти зрозумієш як <strong>просити, відмовляти, коментувати, робити пропозиції і артикулювати</strong> — щоб тебе розуміли і щоб отримувати «так».</p>
