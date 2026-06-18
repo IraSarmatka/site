@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Підготовка до виступу за допомогою GEMINI</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --indigo:#2563EB;
+    --indigo-light:#3B82F6;
+    --indigo-pale:#DBEAFE;
+    --indigo-mist:#EFF6FF;
+    --cream:#faf9f6;
+    --text:#1a1a2e;
+    --text2:#4a4a6a;
+    --text3:#9090aa;
+    --border:rgba(37,99,235,0.12);
+    --border2:rgba(37,99,235,0.22);
+    --serif:'Cormorant Garamond', serif;
+    --sans:'DM Sans', sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:var(--sans);
+    font-weight:300;
+    background:var(--cream);
+    color:var(--text);
+    line-height:1.75;
+    font-size:16px;
+  }
+  .wrap{
+    max-width:760px;
+    margin:0 auto;
+    padding:3rem 1.5rem 5rem;
+  }
+
+  /* Header */
+  header{
+    text-align:center;
+    margin-bottom:2.5rem;
+  }
+  header .eyebrow{
+    font-size:13px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    margin-bottom:.75rem;
+  }
+  h1{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:clamp(2rem, 5vw, 2.8rem);
+    color:var(--text);
+    line-height:1.2;
+    margin-bottom:.75rem;
+  }
+  h1 em{
+    font-style:italic;
+    color:var(--indigo);
+  }
+  header p{
+    font-size:15px;
+    color:var(--text2);
+    max-width:480px;
+    margin:0 auto;
+  }
+
+  /* Yes/No intro */
+  .yesno-intro{
+    margin-bottom:2.5rem;
+  }
+  .yesno-intro-title{
+    font-family:var(--serif);
+    font-size:1.25rem;
+    font-weight:500;
+    text-align:center;
+    margin-bottom:1rem;
+    color:var(--text);
+  }
+  .yesno{
+    display:flex;
+    gap:1.25rem;
+  }
+  .yes-block, .no-block{
+    flex:1 1 0;
+    border-radius:8px;
+    padding:1.35rem 1.5rem;
+    font-size:14px;
+    color:var(--text2);
+  }
+  .yes-block{
+    background:#ECFDF5;
+    border:1px solid rgba(16,185,129,0.18);
+  }
+  .no-block{
+    background:#fff8f5;
+    border:1px solid rgba(200,80,50,0.15);
+  }
+  .yesno-label{
+    font-family:var(--serif);
+    font-size:1.05rem;
+    font-weight:500;
+    margin-bottom:.6rem;
+    display:flex;
+    align-items:center;
+    gap:.5rem;
+  }
+  .yes-block .yesno-label{ color:#047857; }
+  .no-block .yesno-label{ color:#c2410c; }
+  .yesno ul{
+    list-style:none;
+  }
+  .yesno li{
+    padding:.25rem 0;
+  }
+
+  /* Section blocks */
+  section{
+    margin-bottom:2.25rem;
+  }
+  .card{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:1.75rem;
+  }
+  .step-label{
+    display:flex;
+    align-items:center;
+    gap:.75rem;
+    margin-bottom:1rem;
+  }
+  .step-num{
+    flex:0 0 auto;
+    width:34px; height:34px;
+    border-radius:50%;
+    background:var(--indigo);
+    color:#fff;
+    font-family:var(--serif);
+    font-size:1.15rem;
+    display:flex; align-items:center; justify-content:center;
+  }
+  h2{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:clamp(1.35rem, 3vw, 1.7rem);
+    color:var(--text);
+  }
+  .section-note{
+    font-size:14px;
+    color:var(--text2);
+    margin-bottom:1.25rem;
+  }
+
+  /* Why Gemini callout */
+  .why-gemini{
+    background:var(--indigo-mist);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:1.25rem 1.5rem;
+    font-size:14px;
+    color:var(--text2);
+    margin-bottom:1.5rem;
+  }
+  .why-gemini strong{ color:var(--indigo); }
+
+  /* Checklist */
+  .checklist{
+    list-style:none;
+  }
+  .check-item{
+    background:var(--indigo-mist);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:1.1rem 1.25rem;
+    margin-bottom:.75rem;
+  }
+  .check-item:last-child{ margin-bottom:0; }
+  .check-item-head{
+    display:flex;
+    align-items:flex-start;
+    gap:.75rem;
+    cursor:pointer;
+  }
+  .check-item input[type="checkbox"]{
+    flex:0 0 auto;
+    width:19px; height:19px;
+    margin-top:2px;
+    accent-color:var(--indigo);
+    cursor:pointer;
+  }
+  .check-item label{
+    cursor:pointer;
+    font-size:15px;
+    color:var(--text);
+    font-weight:500;
+  }
+  .check-item.checked label{
+    color:var(--text3);
+    text-decoration:line-through;
+  }
+  .check-detail{
+    font-size:13.5px;
+    color:var(--text2);
+    margin-top:.6rem;
+    padding-left:31px;
+  }
+  .check-detail p{ margin-bottom:.5rem; }
+  .check-detail p:last-child{ margin-bottom:0; }
+  .check-detail ul{
+    list-style:none;
+    margin-top:.4rem;
+  }
+  .check-detail ul li{
+    padding:.2rem 0;
+    display:flex;
+    gap:.5rem;
+  }
+  .check-detail ul li::before{
+    content:"·";
+    color:var(--indigo);
+    flex:0 0 auto;
+  }
+  .check-detail a{ color:var(--indigo); }
+
+  /* ===== FORM STYLES ===== */
+  .form-note{
+    background:var(--indigo-pale);
+    border-radius:6px;
+    padding:.9rem 1.1rem;
+    font-size:13.5px;
+    color:#1e3a6e;
+    margin-bottom:1.5rem;
+    display:flex;
+    gap:.6rem;
+    align-items:flex-start;
+  }
+  .form-note .num-circle{
+    flex:0 0 auto;
+    width:22px; height:22px;
+    border-radius:50%;
+    background:var(--indigo);
+    color:#fff;
+    font-size:12px;
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--sans);
+    font-weight:500;
+  }
+
+  .form-group{
+    margin-bottom:1.25rem;
+  }
+  .form-group:last-of-type{
+    margin-bottom:0;
+  }
+  .form-label{
+    display:block;
+    font-size:14px;
+    font-weight:500;
+    color:var(--text);
+    margin-bottom:.4rem;
+  }
+  .form-hint{
+    font-size:12.5px;
+    color:var(--text3);
+    margin-bottom:.5rem;
+    line-height:1.55;
+  }
+  .form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1rem;
+  }
+  input[type="text"],
+  input[type="number"],
+  select,
+  textarea{
+    width:100%;
+    font-family:var(--sans);
+    font-size:14px;
+    font-weight:300;
+    color:var(--text);
+    background:#fff;
+    border:1px solid var(--border2);
+    border-radius:6px;
+    padding:.65rem .9rem;
+    outline:none;
+    transition:border-color .15s ease, box-shadow .15s ease;
+    line-height:1.6;
+    -webkit-appearance:none;
+    appearance:none;
+  }
+  select{
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239090aa' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;
+    background-position:right .8rem center;
+    padding-right:2rem;
+    cursor:pointer;
+  }
+  textarea{
+    resize:vertical;
+    min-height:90px;
+  }
+  input[type="text"]:focus,
+  input[type="number"]:focus,
+  select:focus,
+  textarea:focus{
+    border-color:var(--indigo);
+    box-shadow:0 0 0 3px rgba(37,99,235,0.09);
+  }
+  input::placeholder,
+  textarea::placeholder{
+    color:var(--text3);
+  }
+
+  .form-divider{
+    border:none;
+    border-top:1px solid var(--border);
+    margin:1.5rem 0;
+  }
+
+  /* Generate button */
+  .generate-wrap{
+    text-align:center;
+    margin-top:1.75rem;
+  }
+  .generate-btn{
+    background:var(--indigo);
+    color:#fff;
+    border:none;
+    border-radius:6px;
+    padding:.85rem 2.2rem;
+    font-size:15px;
+    font-family:var(--sans);
+    font-weight:500;
+    letter-spacing:.03em;
+    cursor:pointer;
+    transition:background .15s ease, transform .1s ease;
+    display:inline-flex;
+    align-items:center;
+    gap:.55rem;
+  }
+  .generate-btn:hover{
+    background:var(--indigo-light);
+    transform:translateY(-1px);
+  }
+  .generate-btn:active{
+    transform:translateY(0);
+  }
+
+  /* Result block */
+  .result-block{
+    display:none;
+    margin-top:1.75rem;
+  }
+  .result-block.visible{
+    display:block;
+  }
+
+  /* Prompt box */
+  .prompt-box{
+    position:relative;
+    background:#1a1a2e;
+    border-radius:8px;
+    overflow:hidden;
+  }
+  .prompt-box-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:.85rem 1.1rem;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .prompt-box-header span{
+    font-size:12px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:#8b9bd6;
+  }
+  .prompt-text{
+    font-family:'DM Sans', monospace;
+    font-size:13px;
+    line-height:1.85;
+    color:#e4e8f7;
+    padding:1.25rem;
+    white-space:pre-wrap;
+    word-break:break-word;
+    max-height:520px;
+    overflow-y:auto;
+  }
+  .prompt-text::-webkit-scrollbar{ width:8px; }
+  .prompt-text::-webkit-scrollbar-thumb{ background:rgba(255,255,255,0.15); border-radius:4px; }
+
+  /* Buttons row under prompt */
+  .prompt-actions{
+    display:flex;
+    gap:.75rem;
+    margin-top:1rem;
+    flex-wrap:wrap;
+  }
+  .copy-btn{
+    background:var(--indigo);
+    color:#fff;
+    border:none;
+    border-radius:4px;
+    padding:.55rem 1.1rem;
+    font-size:13px;
+    font-family:var(--sans);
+    letter-spacing:.04em;
+    cursor:pointer;
+    transition:background .15s ease;
+    display:flex;
+    align-items:center;
+    gap:.4rem;
+  }
+  .copy-btn:hover{ background:var(--indigo-light); }
+  .copy-btn.copied{ background:#16a34a; }
+  .gemini-btn{
+    background:transparent;
+    color:var(--indigo);
+    border:1px solid var(--border2);
+    border-radius:4px;
+    padding:.55rem 1.1rem;
+    font-size:13px;
+    font-family:var(--sans);
+    letter-spacing:.04em;
+    cursor:pointer;
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+    gap:.4rem;
+    transition:background .15s ease, border-color .15s ease;
+  }
+  .gemini-btn:hover{
+    background:var(--indigo-mist);
+    border-color:var(--indigo);
+    text-decoration:none;
+  }
+
+  /* Follow-up list */
+  .followups{
+    list-style:none;
+  }
+  .followups li{
+    background:var(--indigo-mist);
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:.95rem 1.1rem;
+    margin-bottom:.75rem;
+    font-size:14px;
+    color:var(--text2);
+  }
+  .followups li:last-child{ margin-bottom:0; }
+  .followups li code{
+    display:block;
+    font-family:'DM Sans', monospace;
+    font-size:13px;
+    color:var(--indigo);
+    margin-top:.45rem;
+    background:#fff;
+    border-radius:4px;
+    padding:.5rem .7rem;
+  }
+  .followups li .ff-title{
+    font-weight:500;
+    color:var(--text);
+    display:block;
+    margin-bottom:.3rem;
+  }
+
+  /* Important note */
+  .important{
+    background:#fff8f5;
+    border:1px solid rgba(200,80,50,0.15);
+    border-radius:8px;
+    padding:1.5rem;
+  }
+  .important .step-num{
+    background:#d9784f;
+  }
+  .important ul{
+    list-style:none;
+    margin-top:.75rem;
+  }
+  .important ul li{
+    display:flex;
+    gap:.6rem;
+    font-size:14px;
+    color:var(--text2);
+    padding:.35rem 0;
+  }
+  .important ul li::before{
+    content:"→";
+    color:#d9784f;
+    flex:0 0 auto;
+  }
+
+  /* Footer */
+  footer{
+    text-align:center;
+    margin-top:3rem;
+    padding-top:2rem;
+    border-top:1px solid var(--border);
+    font-size:13px;
+    color:var(--text3);
+  }
+  footer a{
+    color:var(--indigo);
+    text-decoration:none;
+  }
+  footer a:hover{
+    text-decoration:underline;
+  }
+  .social-links{
+    display:flex;
+    justify-content:center;
+    gap:.75rem;
+    margin-top:1rem;
+  }
+  .social-btn{
+    display:flex;
+    align-items:center;
+    gap:.5rem;
+    padding:.55rem 1.1rem;
+    border-radius:20px;
+    background:var(--indigo-mist);
+    border:1px solid var(--border);
+    color:var(--text2);
+    font-size:13px;
+    text-decoration:none;
+    transition:background .15s ease;
+  }
+  .social-btn:hover{
+    background:var(--indigo-pale);
+    text-decoration:none;
+  }
+  .social-btn svg{
+    width:16px; height:16px;
+    flex:0 0 auto;
+  }
+
+  /* Mobile */
+  @media(max-width:600px){
+    .wrap{ padding:2rem 1rem 4rem; }
+    .card{ padding:1.25rem; }
+    .form-row{ grid-template-columns:1fr; }
+    .prompt-text{ font-size:12.5px; max-height:400px; }
+    .prompt-actions{ flex-direction:column; }
+    .copy-btn, .gemini-btn{ justify-content:center; }
+    .yesno{ flex-direction:column; gap:1rem; }
+    .check-detail{ padding-left:0; margin-top:.5rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">Робочий гайд</div>
+    <h1>Підготовка до <em>виступу</em><br>за допомогою GEMINI</h1>
+    <p>Інструкція, як підсилити свій досвід та знання сучасними інструментами ШІ — і чого від них чекати не варто.</p>
+  </header>
+
+  <!-- Yes/No -->
+  <div class="yesno-intro">
+    <div class="yesno-intro-title">Що це — і що це не</div>
+    <div class="yesno">
+      <div class="yes-block">
+        <div class="yesno-label">✓ Це є</div>
+        <ul>
+          <li>Інструмент, який допоможе швидко скласти структуру та чернетку виступу</li>
+          <li>Спосіб впорядкувати твій власний досвід і приклади у логічну послідовність</li>
+          <li>Помічник у плануванні таймінгу та взаємодії з аудиторією</li>
+          <li>Економія часу — адже створення саме першої, не досконалої чернетки зазвичай займає найдовше</li>
+        </ul>
+      </div>
+      <div class="no-block">
+        <div class="yesno-label">✕ Це не є</div>
+        <ul>
+          <li>Заміна твоїх знань, досвіду та підготовки за автентичними матеріалами та матеріалами навчань</li>
+          <li>Джерело істини щодо першоджерел — факти, дати, імена, назви беремо з навчальних матеріалів</li>
+          <li>Готовий текст "під ключ" — це завжди чернетка, яку треба перевірити, відредагувати та адаптувати під себе</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Why Gemini -->
+  <div class="why-gemini">
+    <strong>Чому саме Gemini:</strong> з усіх мовних моделей саме Gemini найкраще знає матеріали по карма-менеджменту та ACI (Asian Classics Institute), тому він краще "розуміє" контекст теми і термінологію. Але обов'язково перевіряй факти (роки, імена, назви першоджерел, тибетські терміни) за своїми навчальними матеріалами — AI може помилятися.
+  </div>
+
+  <!-- Step 1: Checklist -->
+  <section>
+    <div class="card">
+      <div class="step-label">
+        <div class="step-num">1</div>
+        <h2>Підготуй матеріали заздалегідь</h2>
+      </div>
+      <p class="section-note">Перед тим як писати в Gemini, продумай і запиши відповіді на ці пункти. Чим конкретніше — тим краще промпт спрацює. Можеш позначати готове.</p>
+
+      <ul class="checklist">
+        <li class="check-item">
+          <div class="check-item-head">
+            <input type="checkbox" id="c1">
+            <label for="c1">Тема / інструмент</label>
+          </div>
+          <div class="check-detail">
+            <p>Яку саме тему, практику чи інструмент ти презентуєш.</p>
+          </div>
+        </li>
+
+        <li class="check-item">
+          <div class="check-item-head">
+            <input type="checkbox" id="c2">
+            <label for="c2">Таймінг і формат</label>
+          </div>
+          <div class="check-detail">
+            <p>Скільки хвилин у тебе є на виступ.</p>
+            <p>Формат: онлайн (Zoom, ефір) чи офлайн (зала, конференція) — це впливає на те, як саме плануєш взаємодію з аудиторією (наприклад, "плюсики в чат" доступні тільки в онлайні).</p>
+          </div>
+        </li>
+
+        <li class="check-item">
+          <div class="check-item-head">
+            <input type="checkbox" id="c3">
+            <label for="c3">Аудиторія</label>
+          </div>
+          <div class="check-detail">
+            <p>Новачки (вперше чують про тему) чи люди, які вже щось знають.</p>
+            <p>Орієнтовний вік, переважно жіноча чи змішана аудиторія.</p>
+            <p>Чи є серед слухачів бізнесмени/підприємці — для них особливо важливо показати "як саме застосувати".</p>
+          </div>
+        </li>
+
+        <li class="check-item">
+          <div class="check-item-head">
+            <input type="checkbox" id="c4">
+            <label for="c4">Бажана структура</label>
+          </div>
+          <div class="check-detail">
+            <p>Структура має бути продумана заздалегідь — це те, чого нас навчають, і саме вона робить виступ цілісним.</p>
+            <p>Визнач: яким буде хук на початку, скільки буде основних частин/кроків, чи потрібен анонс наступного уроку/кроку в кінці.</p>
+            <p>Якщо немає чіткого бачення саме хука — можна попросити Gemini запропонувати варіанти на базі твоєї історії, а потім доопрацювати той, що сподобається.</p>
+          </div>
+        </li>
+
+        <li class="check-item">
+          <div class="check-item-head">
+            <input type="checkbox" id="c5">
+            <label for="c5">Першоджерело</label>
+          </div>
+          <div class="check-detail">
+            <p>Перевір у власних навчальних матеріалах і запиши конкретні факти: імена, назви текстів, тибетські терміни, роки, контекст — все, що плануєш вживати.</p>
+            <p>В промпт ці факти потрібно дати від себе, вже звірені — це не те, що варто запитувати у Gemini.</p>
+            <p>Визнач, на яких етапах виступу вони мають з'явитися, наприклад:</p>
+            <ul>
+              <li>коротке згадування у вступі — щоб одразу показати, звідки знання (підвищує довіру)</li>
+              <li>розгорнутий факт-блок (20-30 сек) в основній частині — для аудиторії, яка любить факти і структуру</li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="check-item">
+          <div class="check-item-head">
+            <input type="checkbox" id="c6">
+            <label for="c6">Твоя історія / приклади</label>
+          </div>
+          <div class="check-detail">
+            <p>Наговори на диктофон у вільній формі — без структури і без думок "як це звучатиме". Розкажи:</p>
+            <ul>
+              <li>як інструмент/практика спрацював у твоєму житті</li>
+              <li>що конкретно ти робила (дії, кроки, поведінка)</li>
+              <li>які результати це дало</li>
+              <li>будь-які деталі, емоції, моменти усвідомлення — все, що вважаєш цінним</li>
+            </ul>
+            <p>Не скорочуй і не "причісуй" заздалегідь — Gemini сам відбере найцінніше і розкладе по структурі. Транскрибуй запис через <a href="https://turboscribe.ai/" target="_blank">turboscribe.ai</a> або бот <a href="https://t.me/linktovideoua_bot" target="_blank">@linktovideoua_bot</a>.</p>
+          </div>
+        </li>
+
+        <li class="check-item">
+          <div class="check-item-head">
+            <input type="checkbox" id="c7">
+            <label for="c7">Комунікація з аудиторією</label>
+          </div>
+          <div class="check-detail">
+            <p>Заплануй заздалегідь, в яких місцях виступу ти звертатимешся до аудиторії — це веде слухачів до правильного висновку, а не перетворює виступ на лекцію.</p>
+            <p>Подумай і, якщо можеш, сформулюй конкретні питання:</p>
+            <ul>
+              <li>на початку — питання-хук, яке відразу "зачепить" (наприклад, риторичне питання або прохання реакції в чат)</li>
+              <li>в середині — перевірка розуміння або питання, яке підводить до наступного кроку</li>
+              <li>перед головним висновком — питання, яке аудиторія сама собі відповість "правильно", і тоді твій висновок прозвучить як їхнє власне відкриття</li>
+            </ul>
+            <p>Якщо конкретних питань ще немає — це ок, попроси Gemini запропонувати варіанти під твою тему і аудиторію.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Step 2: Form + Master Prompt Generator -->
+  <section>
+    <div class="card">
+      <div class="step-label">
+        <div class="step-num">2</div>
+        <h2>Згенеруй свій майстер-промпт</h2>
+      </div>
+      <div class="form-note">
+        <div class="num-circle">i</div>
+        <div>Заповни поля нижче — і по кнопці отримаєш готовий промпт для Gemini. Залишиться тільки вставити його в діалог і додати файл з транскрипцією твоїх прикладів.</div>
+      </div>
+
+      <!-- Блок 1: Інструмент -->
+      <div class="form-group">
+        <label class="form-label" for="f-tool-name">Назва інструменту / теми виступу</label>
+        <div class="form-hint">Яку саме практику, інструмент або тему ти презентуєш — назви коротко.</div>
+        <input type="text" id="f-tool-name" placeholder="Наприклад: Практика чотирьох сил, Колесо карми, Практика шанування вчителя">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="f-tool-desc">Опис інструменту — структура / кроки виконання</label>
+        <div class="form-hint">Як саме працює цей інструмент — перелічи кроки або опиши логіку виконання. Це допоможе Gemini правильно розподілити твій матеріал по структурі.</div>
+        <textarea id="f-tool-desc" rows="4" placeholder="Наприклад:&#10;1. Визнаємо негативну дію / думку&#10;2. Відчуваємо щире каяття&#10;3. Приймаємо рішення не повторювати&#10;4. Виконуємо очищувальну практику&#10;&#10;Або: Практика складається з трьох частин: підготовка свідомості, основна медитація, завершення і посвята."></textarea>
+      </div>
+
+      <hr class="form-divider">
+
+      <!-- Блок 2: Формат виступу -->
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="f-timing">Таймінг (хвилин)</label>
+          <div class="form-hint">Скільки хвилин на виступ.</div>
+          <input type="number" id="f-timing" min="1" max="180" placeholder="Наприклад: 20">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="f-format">Формат виступу</label>
+          <div class="form-hint">Де відбувається виступ.</div>
+          <select id="f-format">
+            <option value="">— обери —</option>
+            <option value="онлайн (Zoom / ефір)">Онлайн (Zoom, ефір)</option>
+            <option value="офлайн (зала, конференція)">Офлайн (зала, конференція)</option>
+          </select>
+        </div>
+      </div>
+
+      <hr class="form-divider">
+
+      <!-- Блок 3: Аудиторія -->
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="f-aud-level">Рівень знань аудиторії</label>
+          <select id="f-aud-level">
+            <option value="">— обери —</option>
+            <option value="новачки — вперше чують про тему">Новачки (вперше чують)</option>
+            <option value="є базове розуміння теми">Є базове розуміння</option>
+            <option value="досвідчені практики, які вже давно у темі">Досвідчені практики</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="f-aud-gender">Склад аудиторії</label>
+          <select id="f-aud-gender">
+            <option value="">— обери —</option>
+            <option value="переважно жіноча аудиторія">Переважно жіноча</option>
+            <option value="переважно чоловіча аудиторія">Переважно чоловіча</option>
+            <option value="змішана аудиторія">Змішана</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="f-aud-details">Деталі аудиторії</label>
+        <div class="form-hint">Орієнтовний вік, хто є серед слухачів (бізнесмени, мами, фрілансери) — якщо це важливо для подачі.</div>
+        <textarea id="f-aud-details" rows="2" placeholder="Наприклад: орієнтовний вік 30–50, є підприємці та люди у корпоративній кар'єрі"></textarea>
+      </div>
+
+      <hr class="form-divider">
+
+      <!-- Блок 4: Структура -->
+      <div class="form-group">
+        <label class="form-label" for="f-structure">Бажана структура виступу та ідея хука</label>
+        <div class="form-hint">Хук на початку (є ідея — опиши; немає — так і напиши, Gemini запропонує варіанти), кількість основних блоків, чи потрібен місток до наступного уроку/кроку в кінці.</div>
+        <textarea id="f-structure" rows="3" placeholder="Наприклад: хук — риторичне питання про ситуацію коли зробила щось, про що пошкодувала; 3 основні блоки по кроках практики; в кінці анонс наступного уроку.&#10;&#10;Або: ідеї хука немає — прошу запропонувати 2-3 варіанти на базі моєї транскрипції."></textarea>
+      </div>
+
+      <hr class="form-divider">
+
+      <!-- Блок 5: Першоджерело -->
+      <div class="form-group">
+        <label class="form-label" for="f-sources">Першоджерела — тільки перевірені тобою факти</label>
+        <div class="form-hint">Імена, назви текстів, тибетські терміни, роки, контекст — все що звірила у своїх навчальних матеріалах. Також вкажи де саме у виступі вони мають з'явитись.</div>
+        <textarea id="f-sources" rows="3" placeholder="Наприклад: текст — Бодхічарьяватара, автор — Шантідева, VIII ст. Хочу коротко згадати у вступі для контексту і розгорнуто в основній частині при поясненні 3-го кроку."></textarea>
+      </div>
+
+      <hr class="form-divider">
+
+      <!-- Блок 6: Комунікація -->
+      <div class="form-group">
+        <label class="form-label" for="f-audience-qa">Комунікація з аудиторією</label>
+        <div class="form-hint">Конкретні питання до аудиторії — якщо вже є — і де їх ставити. Якщо немає — так і напиши, Gemini запропонує варіанти.</div>
+        <textarea id="f-audience-qa" rows="3" placeholder="Наприклад: на початку — запитаю чи бувало що зробили щось і потім пошкодували (реакція в чат); перед висновком — питання яке підведе до думки що ми самі маємо силу змінити ситуацію.&#10;&#10;Або: конкретних питань ще немає — прошу запропонувати варіанти під мою тему і аудиторію."></textarea>
+      </div>
+
+      <!-- Generate button -->
+      <div class="generate-wrap">
+        <button class="generate-btn" onclick="generatePrompt()">
+          ✦ Згенерувати майстер-промпт
+        </button>
+      </div>
+
+      <!-- Result -->
+      <div class="result-block" id="resultBlock">
+        <div class="prompt-box">
+          <div class="prompt-box-header">
+            <span>Майстер-промпт</span>
+          </div>
+          <div class="prompt-text" id="promptOutput"></div>
+        </div>
+        <div class="prompt-actions">
+          <button class="copy-btn" onclick="copyPrompt()" id="copyBtn">
+            <span id="copyIcon">📋</span> <span id="copyLabel">Скопіювати промпт</span>
+          </button>
+          <a class="gemini-btn" href="https://gemini.google.com" target="_blank">
+            ↗ Відкрити Gemini
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Step 3: Refinement -->
+  <section>
+    <div class="card">
+      <div class="step-label">
+        <div class="step-num">3</div>
+        <h2>Доопрацювання</h2>
+      </div>
+      <p class="section-note">Доопрацювання не завжди відбувається в чаті — обери підхід залежно від типу правок:</p>
+      <ul class="followups">
+        <li>
+          <span class="ff-title">Обов'язково: вичитка на відповідність фактам</span>
+          Перевір, чи Gemini нічого не "прикрасив", не додав фактів/деталей, яких ти не давала, і не відійшов від того, що ти просила.
+        </li>
+        <li>
+          <span class="ff-title">Питання тільки у формулюваннях / стилі</span>
+          Скопіюй готовий текст у Google Docs і редагуй там безпосередньо — так зручніше працювати з текстом, який майже готовий.
+        </li>
+        <li>
+          <span class="ff-title">Питання по таймінгу, структурі, наповненню</span>
+          Продовжуй діалог у Gemini — наприклад:
+          <code>Скоротити / розширити блок [X]</code>
+          <code>Додай ще одне питання до аудиторії перед висновком</code>
+        </li>
+        <li>
+          <span class="ff-title">Звучить занадто формально</span>
+          <code>Перепиши простіше, моїми словами</code>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Important -->
+  <section>
+    <div class="important">
+      <div class="step-label" style="margin-bottom:.5rem;">
+        <div class="step-num">!</div>
+        <h2>Важливо</h2>
+      </div>
+      <p style="font-size:14px; color:var(--text2);">Це лише <strong style="color:var(--text);">чернетка</strong>. Перед виступом обов'язково:</p>
+      <ul>
+        <li>вичитай текст і адаптуй формулювання під свій стиль мовлення</li>
+        <li>звір факти про першоджерела зі своїми навчальними матеріалами, а не з відповіддю AI</li>
+        <li>хоча б один раз проговори текст вголос з таймером, щоб перевірити реальний таймінг</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <a href="https://irynapietrova.com" target="_blank">irynapietrova.com</a>
+    <div class="social-links">
+      <a class="social-btn" href="https://www.instagram.com/iryna.pietrova/" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        Instagram
+      </a>
+      <a class="social-btn" href="https://t.me/irynapietrova" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"></path><path d="M22 2l-7 20-4-9-9-4 20-7z"></path></svg>
+        Telegram
+      </a>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  // Checklist toggles
+  document.querySelectorAll('.check-item input[type="checkbox"]').forEach(cb => {
+    cb.addEventListener('change', () => {
+      cb.closest('.check-item').classList.toggle('checked', cb.checked);
+    });
+  });
+
+  function val(id){ return (document.getElementById(id).value || '').trim(); }
+
+  function generatePrompt(){
+    const toolName    = val('f-tool-name');
+    const toolDesc    = val('f-tool-desc');
+    const timing      = val('f-timing');
+    const format      = val('f-format');
+    const audLevel    = val('f-aud-level');
+    const audGender   = val('f-aud-gender');
+    const audDetails  = val('f-aud-details');
+    const structure   = val('f-structure');
+    const sources     = val('f-sources');
+    const audienceQA  = val('f-audience-qa');
+
+    const toolNameLine   = toolName   || '[НАЗВА ІНСТРУМЕНТУ / ТЕМИ]';
+    const toolDescLine   = toolDesc   || '[ОПИС СТРУКТУРИ / КРОКІВ ВИКОНАННЯ]';
+    const timingLine     = timing     || '[ВКАЗАТИ КІЛЬКІСТЬ ХВИЛИН]';
+    const formatLine     = format     || '[ФОРМАТ ВИСТУПУ]';
+    const audLevelLine   = audLevel   || '[РІВЕНЬ ЗНАНЬ АУДИТОРІЇ]';
+    const audGenderLine  = audGender  || '[СКЛАД АУДИТОРІЇ]';
+    const audDetailsLine = audDetails || '[ДЕТАЛІ АУДИТОРІЇ]';
+    const structureLine  = structure  || '[ОПИС БАЖАНОЇ СТРУКТУРИ ТА ХУКА]';
+    const sourcesLine    = sources    || '[ПЕРЕВІРЕНІ ФАКТИ ПРО ПЕРШОДЖЕРЕЛА ТА ДЕ ВОНИ МАЮ ЗВУЧАТИ]';
+    const audienceQALine = audienceQA || '[ПИТАННЯ ДО АУДИТОРІЇ АБО ПРОХАННЯ ЗАПРОПОНУВАТИ ВАРІАНТИ]';
+
+    const prompt =
+`Допоможи мені підготувати виступ на тему "${toolNameLine}".
+
+Про інструмент / практику:
+${toolDescLine}
+
+Таймінг: ${timingLine} хвилин.
+Формат: ${formatLine}.
+
+Аудиторія: ${audLevelLine}, ${audGenderLine}.
+${audDetailsLine ? audDetailsLine + '\n' : ''}
+Бажана структура виступу та хук:
+${structureLine}
+
+Першоджерело — використай ТІЛЬКИ ці факти, перевірені мною, нічого не додавай і не змінюй:
+${sourcesLine}
+
+Комунікація з аудиторією:
+${audienceQALine}
+
+Транскрипцію моєї історії та прикладів, які я хочу використати як ілюстрацію (у довільному порядку, без структури), я додаю окремим файлом до цього повідомлення.
+
+Завдання:
+1. Розклади мою історію по відповідних частинах теми — кожен приклад має ілюструвати конкретний пункт.
+2. Прибери повтори, залиш найяскравіші деталі, збережи мій голос і стиль мовлення.
+3. Інтегруй заплановану комунікацію з аудиторією (питання, реакції) у визначені місця — так, щоб слухачі самі приходили до висновків, а не отримували готову лекцію.
+4. На кожному логічному етапі додай короткий проміжний підсумок ("ось ми розібрали...", "тепер переходимо до...") — це особливо важливо для аудиторії, яка любить структуру і чіткість.
+5. В кінці обов'язково зроби фінальний підсумок усього виступу та місток до наступного кроку/уроку (якщо релевантно).
+6. Не додавай нових фактів, цитат, дат чи деталей про першоджерело понад те, що я надала — не "прикрашай" і не домислюй.
+7. Врахуй систему 4МАТ — переконайся, що в тексті присутні всі 4 типи слухачів:
+   - "Чому?" (мотиватори) — емоції, особиста історія, сенс, навіщо це важливо
+   - "Що?" (аналітики) — факти, терміни, джерела, структура, визначення
+   - "Як?" (практики) — конкретні інструкції, кроки, лайфхаки, як застосувати
+   - "Що, якщо?" (реформатори) — перспектива на майбутнє, "уявіть, як зміниться ваше життя", натхнення до дії
+8. Перевір, щоб загальний обсяг тексту відповідав заданому таймінгу при швидкості мовлення 110-130 слів/хв.
+
+Дай фінальний сценарій з орієнтовним таймінгом по блоках.`;
+
+    document.getElementById('promptOutput').textContent = prompt;
+    const resultBlock = document.getElementById('resultBlock');
+    resultBlock.style.display = 'block';
+    resultBlock.classList.add('visible');
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){
+        var top = resultBlock.getBoundingClientRect().top + window.pageYOffset - 20;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      });
+    });
+  }
+
+  function copyPrompt(){
+    const text = document.getElementById('promptOutput').textContent;
+
+    function showSuccess(){
+      const btn   = document.getElementById('copyBtn');
+      const icon  = document.getElementById('copyIcon');
+      const label = document.getElementById('copyLabel');
+      btn.classList.add('copied');
+      icon.textContent  = '✓';
+      label.textContent = 'Скопійовано';
+      setTimeout(() => {
+        btn.classList.remove('copied');
+        icon.textContent  = '📋';
+        label.textContent = 'Скопіювати промпт';
+      }, 2000);
+    }
+
+    function fallbackCopy(){
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.cssText = 'position:fixed;left:-9999px;top:0;';
+      document.body.appendChild(ta);
+      ta.focus(); ta.select();
+      try{
+        const ok = document.execCommand('copy');
+        document.body.removeChild(ta);
+        if(ok){ showSuccess(); }
+        else{ alert('Не вдалося скопіювати. Виділи текст вручну і скопіюй.'); }
+      }catch(e){
+        document.body.removeChild(ta);
+        alert('Не вдалося скопіювати. Виділи текст вручну і скопіюй.');
+      }
+    }
+
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(showSuccess).catch(fallbackCopy);
+    } else {
+      fallbackCopy();
+    }
+  }
+</script>
+
+</body>
+</html>
