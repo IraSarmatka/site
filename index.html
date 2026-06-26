@@ -416,6 +416,7 @@ em { font-style: normal; }
       <li><a href="#about" data-ua="Про мене" data-en="About">Про мене</a></li>
       <li><a href="#services" data-ua="Послуги" data-en="Services">Послуги</a></li>
       <li><a href="https://irynapietrova.com/products/" data-ua="Продукти" data-en="" class="nav-products-link">Продукти</a></li>
+      <li class="nav-blog-link"><a href="https://irynapietrova.com/blog/">Блог</a></li>
       <li><a href="#topics" data-ua="Напрямки" data-en="Focus">Напрямки</a></li>
       <li><a href="#book" data-ua="Записатись" data-en="Book">Записатись</a></li>
     </ul>
@@ -659,6 +660,9 @@ function setLang(lang) {
     if (['A','BUTTON','SPAN','DIV','P','H1','H2','LI'].includes(tag)) el.innerHTML = val;
   });
   // UA-only elements
+  document.querySelectorAll('.nav-blog-link').forEach(el => {
+    el.style.display = lang === 'uk' ? '' : 'none';
+  });
   document.querySelectorAll('.btn-products-ua, .nav-products-link').forEach(el => {
     el.style.display = lang === 'uk' ? '' : 'none';
   });
