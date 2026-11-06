@@ -146,6 +146,7 @@ ol.pos li{display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:start
 .decks-row{display:flex;flex-wrap:wrap;gap:6px}
 .dk{border:1px solid var(--border2);background:var(--indigo-mist);color:var(--indigo);font:400 13px var(--sans);padding:5px 12px;border-radius:999px;cursor:pointer}
 .dk:hover{background:var(--indigo-pale)}
+.deck-note{font-size:12.5px;color:var(--text3);line-height:1.5}
 .dk.sm{cursor:default;font-size:11.5px;padding:1px 9px;margin-left:8px;white-space:nowrap}
 .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--text);color:var(--cream);padding:10px 16px;border-radius:3px;font-size:14px;z-index:40}
 
@@ -280,6 +281,7 @@ a.logo:hover{color:var(--indigo)}
             <li><b>Клієнт є експертом свого життя.</b> Будь-яка інтерпретація спершу пропонується як припущення і приймається тільки, якщо людина впізнає в ній себе.</li>
             <li><b>Метафора безпечніша за пряму розмову.</b> Говорити про «жінку на карті, якій тісно» легше, ніж про себе. Дистанція дає змогу торкнутися болючого обережно.</li>
           </ul>
+          <p>До розкладів в атласі підібрано колоди Ірини Пєтрової, але це лише рекомендація. Більшість розкладів працює з будь-якою універсальною колодою МАК, тож починайте з тієї, що у вас є.</p>
           <p>МАК не є ворожінням. «Майбутнє» в розкладі означає можливість, яку людина бачить, а не передбачення. Варто говорити це клієнтам прямо, особливо тим, хто прийшов з досвідом таро.</p>
         </section>
 
@@ -386,6 +388,7 @@ a.logo:hover{color:var(--indigo)}
       <li><b>The client is the expert on their own life.</b> Any interpretation is first offered as a guess and accepted only if the person recognises themselves in it.</li>
       <li><b>A metaphor is safer than direct talk.</b> It's easier to talk about “the woman on the card who feels cramped” than about yourself. The distance allows touching painful things gently.</li>
     </ul>
+    <p>The atlas suggests Iryna Pietrova's decks for each spread, but that is only a recommendation. Most spreads work with any universal metaphor card deck, so start with the one you have.</p>
     <p>MAC are not fortune-telling. “The future” in a spread means a possibility the person sees, not a prediction. It's worth telling clients this directly, especially those who come with tarot experience.</p>
   </section>
 
@@ -507,7 +510,7 @@ const UI={
   favAdd:"☆ Додати в обрані",favIn:"★ В обраних",copy:"Скопіювати текст розкладу",next:"Інший випадковий",close:"Закрити",copied:"Скопійовано",copyFail:"Виділіть текст вручну",tipL:"Порада",
   noCards:"без карт",inFav:"в обраних",
   lede:(n,c,b)=>`${n} простих розкладів метафоричних карт, щоб працювати з собою: від карти дня до розбору ситуації. Відкривайте схему, пояснення й питання до кожної карти.`,
-  whyL:"Коли і навіщо",deepL:"Питання, щоб поглибити",
+  whyL:"Коли і навіщо",deepL:"Питання, щоб поглибити",deckNote:"Колоди — лише рекомендація. Більшість розкладів працює з будь-якою універсальною колодою МАК.",
   deckAny:"Будь-яка колода",fDecks:"Колоди",deckL:"Колоди Ірини Пєтрової, з якими працює розклад",mixL:"Мікс колод: для кожної позиції своя колода",
   toc:["Що таке МАК","Історія","Як це працює","Способи витягування","Банк питань","Структура сесії","Вибір колоди","Етика і безпека","Словник","Джерела"],tocL:"Зміст",ctaH:"Повний атлас — <em>287 розкладів</em>",ctaP:"Для психологів і коучів: розклади для роботи з клієнтами, групами й парами, складні теми, сесії на годину. Українською та англійською.",ctaB:"Написати в Telegram",title:"Атлас розкладів МАК"},
  en:{logo:"Iryna Pietrova",tabSpreads:"Spreads",tabAbout:"About the method",h1:"Metaphor Card <em>Spreads</em> Atlas",tagline:"Simple spreads for yourself",
@@ -525,7 +528,7 @@ const UI={
   favAdd:"☆ Save",favIn:"★ Saved",copy:"Copy spread text",next:"Another random one",close:"Close",copied:"Copied",copyFail:"Select the text manually",tipL:"Tip",
   noCards:"no cards",inFav:"saved",
   lede:(n,c,b)=>`${n} simple metaphor card spreads for working with yourself, from a card of the day to unpacking a situation. Open the layout, the explanation and the questions for each card.`,
-  whyL:"When and why",deepL:"Questions to go deeper",
+  whyL:"When and why",deepL:"Questions to go deeper",deckNote:"Decks are only a suggestion. Most spreads work with any universal metaphor card deck.",
   deckAny:"Any deck",fDecks:"Decks",deckL:"Iryna Pietrova's decks that suit this spread",mixL:"Deck mix: each position uses its own deck",
   toc:["What MAC are","History","How it works","Ways to draw","Question bank","Session structure","Choosing a deck","Ethics and safety","Glossary","Sources"],tocL:"Contents",ctaH:"The full atlas — <em>287 spreads</em>",ctaP:"For psychologists and coaches: spreads for work with clients, groups and couples, difficult topics, hour-long sessions. In Ukrainian and English.",ctaB:"Message me on Telegram",title:"Metaphor Card Spreads Atlas"}
 };
@@ -688,7 +691,7 @@ function openSpread(id,push=true){
     ${x.why?`<div class="why"><div class="blk-h">${u.whyL}</div><p>${esc(x.why)}</p></div>`:""}
     <div class="big">${svgFor(s,44)}</div>
     <div class="facts"><span class="fact"><b>${u.fCards}</b>${cardsLabel(s)}</span><span class="fact"><b>${u.fTime}</b>${esc(x.t)}</span><span class="fact"><b>${u.fLevel}</b>${u.lv[s.l]}</span><span class="fact"><b>${u.fWho}</b>${who}</span></div>
-    <div class="decks"><div class="decks-h">${s.mix?u.mixL:u.deckL}</div><div class="decks-row">${(s.mix?[...new Set(s.mix)]:s.d||[]).map(k=>`<button class="dk" data-deck="${k}">${esc(deckName(k))}</button>`).join("")}</div></div>
+    <div class="decks"><div class="decks-h">${s.mix?u.mixL:u.deckL}</div><div class="decks-row">${(s.mix?[...new Set(s.mix)]:s.d||[]).map(k=>`<button class="dk" data-deck="${k}">${esc(deckName(k))}</button>`).join("")}</div><div class="deck-note">${u.deckNote}</div></div>
     <ol class="pos">${x.p.map((p,i)=>`<li><span class="pn ${p[2]==="з"?"z":p[2]==="б"?"b":""}">${i+1}</span><div><span class="pt">${esc(p[0]||u.pos+" "+(i+1))}</span>${p[2]?`<span class="mode">${u.m[p[2]]}</span>`:""}${s.mix?`<span class="dk sm">${esc(deckName(s.mix[i]))}</span>`:""}${p[1]?`<div class="pq">${esc(p[1])}</div>`:""}</div></li>`).join("")}</ol>
     ${s.k&&!/^\d+$/.test(s.k)?`<p class="pq" style="margin:0">${u.flex(esc(kText(s.k)))}</p>`:""}
     ${x.deep.length?`<div class="deep"><div class="blk-h">${u.deepL}</div><ul>${x.deep.map(q=>`<li>${esc(q)}</li>`).join("")}</ul></div>`:""}
