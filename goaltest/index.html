@@ -7,8 +7,14 @@
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://irynapietrova.com/goaltest/">
 <title>Тест на ефективність цілей · Ірина Пєтрова</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+/* Варіант B (листопад 2026): звичайні цифри в Playfair, ширше на великих екранах */
+*{font-variant-numeric:lining-nums!important}
+:root{--wrap:1080px}
+@media (min-width:1400px){:root{--wrap:1240px}}
+@media (min-width:1800px){:root{--wrap:1320px}body{zoom:1.06}}
+
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
@@ -18,19 +24,19 @@
     --indigo-mist: #EFF6FF;
     --cream: #faf9f6;
     --text: #1a1a2e;
-    --text2: #4a4a6a;
-    --text3: #9090aa;
+    --text2: #3a3a56;
+    --text3: #6a6a86;
     --border: rgba(37,99,235,0.12);
     --border2: rgba(37,99,235,0.22);
-    --serif: 'Cormorant Garamond', serif;
-    --sans: 'DM Sans', sans-serif;
+    --serif: 'Playfair Display', serif;
+    --sans: 'Onest', sans-serif;
   }
 
   html { scroll-behavior: smooth; }
 
   body {
     font-family: var(--sans);
-    font-weight: 300;
+    font-weight: 400;
     color: var(--text);
     background: var(--cream);
     line-height: 1.7;
@@ -57,7 +63,7 @@
   }
   .nav-logo span { color: var(--indigo); font-style:normal; }
   .nav-back {
-    font-size: 12px; letter-spacing: .07em;
+    font-size: 13px; letter-spacing: .07em;
     color: var(--text3); text-decoration: none;
     transition: color .2s;
     text-transform: uppercase;
@@ -72,7 +78,7 @@
   }
   .hero-tag {
     display: inline-block;
-    font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+    font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
     color: var(--indigo); font-weight: 400;
     background: var(--indigo-pale);
     padding: 5px 14px; border-radius: 2px;
@@ -87,7 +93,7 @@
   }
   .hero h1 em { color: var(--indigo); font-style:normal; }
   .hero-sub {
-    font-size: 15px; color: var(--text2);
+    font-size: 16.5px; color: var(--text2);
     max-width: 500px; margin: 0 auto 2.5rem;
     line-height: 1.75;
   }
@@ -127,7 +133,7 @@
   }
   .question-card:hover { border-color: var(--border2); }
   .q-num {
-    font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+    font-size: 12px; letter-spacing: .1em; text-transform: uppercase;
     color: var(--indigo); font-weight: 400; margin-bottom: .75rem;
     display: flex; align-items: center; gap: .5rem;
   }
@@ -137,7 +143,7 @@
   }
   .question-text {
     font-family: var(--sans);
-    font-size: 16px; font-weight: 400;
+    font-size: 17px; font-weight: 400;
     line-height: 1.4; color: var(--text);
     margin-bottom: 1.25rem;
   }
@@ -164,7 +170,7 @@
     display: flex; align-items: center; justify-content: center;
     margin-top: 1px;
     transition: all .18s;
-    font-size: 11px; color: transparent;
+    font-size: 12px; color: transparent;
   }
   .option.selected .opt-mark {
     border-color: var(--indigo);
@@ -172,13 +178,13 @@
     color: #fff;
   }
   .opt-letter {
-    font-size: 11px; font-weight: 500; letter-spacing: .05em;
+    font-size: 12px; font-weight: 500; letter-spacing: .05em;
     color: var(--text3); flex-shrink: 0; margin-top: 2px;
     text-transform: uppercase;
   }
   .option.selected .opt-letter { color: var(--indigo); }
   .opt-text {
-    font-size: 14px; line-height: 1.55; color: var(--text2);
+    font-size: 15px; line-height: 1.55; color: var(--text2);
   }
   .option.selected .opt-text { color: var(--text); }
 
@@ -192,18 +198,18 @@
   }
   .fields-title {
     font-family: var(--sans);
-    font-size: 14px; font-weight: 500;
+    font-size: 15px; font-weight: 500;
     color: var(--text); margin-bottom: 1.25rem;
   }
   .field-row { display: flex; gap: 1rem; }
   .field-group { flex: 1; display: flex; flex-direction: column; gap: .4rem; }
   label {
-    font-size: 12px; letter-spacing: .06em; text-transform: uppercase;
+    font-size: 13px; letter-spacing: .06em; text-transform: uppercase;
     color: var(--text3); font-weight: 400;
   }
   input[type="text"], input[type="email"] {
-    font-family: var(--sans); font-weight: 300;
-    font-size: 14px; color: var(--text);
+    font-family: var(--sans); font-weight: 400;
+    font-size: 15px; color: var(--text);
     background: var(--cream); border: 1px solid var(--border2);
     border-radius: 3px; padding: 11px 14px;
     width: 100%; outline: none;
@@ -215,7 +221,7 @@
   .btn-submit {
     width: 100%;
     font-family: var(--sans); font-weight: 400;
-    font-size: 13px; letter-spacing: .08em; text-transform: uppercase;
+    font-size: 14.5px; letter-spacing: .08em; text-transform: uppercase;
     background: var(--indigo); color: #fff;
     border: none; border-radius: 3px;
     padding: 16px 32px; cursor: pointer;
@@ -227,7 +233,7 @@
   .btn-submit:disabled {
     background: var(--text3); cursor: not-allowed;
   }
-  .btn-arrow { font-size: 16px; transition: transform .2s; }
+  .btn-arrow { font-size: 17px; transition: transform .2s; }
   .btn-submit:hover .btn-arrow { transform: translateX(4px); }
 
   /* RESULT */
@@ -261,7 +267,7 @@
     position: relative; z-index: 1;
   }
   .result-label {
-    font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+    font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
     color: rgba(255,255,255,0.6); margin-bottom: .4rem;
     position: relative; z-index: 1;
   }
@@ -276,7 +282,7 @@
     background: #fff; border: 1px solid var(--border);
     border-radius: 6px; padding: 2rem;
     margin-bottom: 1.25rem;
-    font-size: 15px; color: var(--text2);
+    font-size: 16.5px; color: var(--text2);
     line-height: 1.8;
   }
   .result-body p { margin-bottom: 1rem; }
@@ -291,16 +297,16 @@
     margin-bottom: 1.5rem;
   }
   .result-cta-title {
-    font-family: var(--sans); font-size: 14px; font-weight: 500;
+    font-family: var(--sans); font-size: 15px; font-weight: 500;
     color: var(--text); margin-bottom: .5rem;
   }
-  .result-cta-text { font-size: 13.5px; color: var(--text2); line-height: 1.7; }
+  .result-cta-text { font-size: 15px; color: var(--text2); line-height: 1.7; }
 
   .btn-tg {
     display: flex; align-items: center; justify-content: center; gap: .6rem;
     width: 100%;
     font-family: var(--sans); font-weight: 400;
-    font-size: 13px; letter-spacing: .07em; text-transform: uppercase;
+    font-size: 14.5px; letter-spacing: .07em; text-transform: uppercase;
     background: var(--indigo); color: #fff;
     border: none; border-radius: 3px;
     padding: 15px 32px; cursor: pointer;
@@ -312,7 +318,7 @@
   .btn-retry {
     display: block; width: 100%; text-align: center;
     margin-top: .75rem;
-    font-size: 12px; letter-spacing: .07em; text-transform: uppercase;
+    font-size: 13px; letter-spacing: .07em; text-transform: uppercase;
     color: var(--text3); cursor: pointer; background: none; border: none;
     padding: .75rem; text-decoration: none;
     transition: color .2s;
@@ -324,7 +330,7 @@
     display: none;
     background: #fff8f5; border: 1px solid rgba(200,80,50,0.2);
     border-radius: 4px; padding: 1rem 1.25rem;
-    font-size: 13px; color: #c85032;
+    font-size: 14.5px; color: #c85032;
     margin-bottom: 1rem;
   }
   .error-note.active { display: block; }
@@ -332,7 +338,7 @@
   /* FOOTER */
   footer {
     text-align: center; padding: 2rem;
-    font-size: 12px; color: var(--text3);
+    font-size: 13px; color: var(--text3);
     border-top: 1px solid var(--border);
     margin-top: 3rem;
   }

@@ -16,19 +16,25 @@
   <meta property="og:image:height" content="630"/>
   <meta property="og:locale" content="uk_UA"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-63Y1H66TJB"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-63Y1H66TJB');</script>
   <style>
+/* Варіант B (листопад 2026): звичайні цифри в Playfair, ширше на великих екранах */
+*{font-variant-numeric:lining-nums!important}
+:root{--wrap:1080px}
+@media (min-width:1400px){:root{--wrap:1240px}}
+@media (min-width:1800px){:root{--wrap:1320px}body{zoom:1.06}}
+
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{
       --indigo:#2563EB;--indigo-light:#3B82F6;--indigo-pale:#DBEAFE;
       --indigo-mist:#EFF6FF;--cream:#faf9f6;--text:#1a1a2e;
-      --text2:#4a4a6a;--text3:#9090aa;
+      --text2:#3a3a56;--text3:#6a6a86;
       --border:rgba(37,99,235,0.12);--border2:rgba(37,99,235,0.22);
-      --serif:'Cormorant Garamond',Georgia,serif;--sans:'DM Sans',sans-serif;
+      --serif:'Playfair Display',Georgia,serif;--sans:'Onest',sans-serif;
     }
-    body{font-family:var(--sans);font-weight:300;color:var(--text2);background:var(--cream);line-height:1.75}
+    body{font-family:var(--sans);font-weight:400;color:var(--text2);background:var(--cream);line-height:1.75}
 
     nav{
       position:fixed;top:0;left:0;right:0;z-index:100;
@@ -43,7 +49,7 @@
     .btn-back{
       display:inline-flex;align-items:center;gap:.4rem;
       border:1px solid var(--border2);border-radius:3px;
-      padding:7px 16px;font-size:13px;letter-spacing:.06em;
+      padding:7px 16px;font-size:14.5px;letter-spacing:.06em;
       color:var(--text2);text-decoration:none;
       font-family:var(--sans);font-weight:400;transition:all .2s;
     }
@@ -64,23 +70,23 @@
       background:var(--cream);
     }
     .article-meta{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem}
-    .article-tag{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--indigo);font-weight:500}
-    .article-date{font-size:13px;color:var(--text3)}
+    .article-tag{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--indigo);font-weight:500}
+    .article-date{font-size:14.5px;color:var(--text3)}
     .hero-text-col h1{
       font-family:var(--serif);
       font-size:clamp(2rem,3vw,3rem);
       font-weight:500;line-height:1.1;
       color:var(--text);margin-bottom:1.25rem;
     }
-    .hero-text-col .lead{font-size:15px;color:var(--text2);line-height:1.8}
+    .hero-text-col .lead{font-size:16.5px;color:var(--text2);line-height:1.8}
 
     .article-body{padding:3.5rem 2.5rem 2rem;background:var(--cream)}
     .article-body .inner{max-width:760px;margin:0 auto}
-    .article-body p{font-size:16px;color:var(--text2);line-height:1.8;margin-bottom:1.5rem}
+    .article-body p{font-size:17px;color:var(--text2);line-height:1.8;margin-bottom:1.5rem}
     .article-body h2{font-family:var(--serif);font-size:clamp(1.5rem,2.5vw,2rem);font-weight:500;color:var(--text);line-height:1.2;margin:2.5rem 0 1rem}
     .article-body h3{font-family:var(--serif);font-size:clamp(1.1rem,2vw,1.4rem);font-weight:500;color:var(--text);line-height:1.2;margin:1.75rem 0 .6rem}
     .article-body ul{margin:0 0 1.5rem 1.5rem}
-    .article-body ul li{font-size:16px;color:var(--text2);line-height:1.8;margin-bottom:.4rem}
+    .article-body ul li{font-size:17px;color:var(--text2);line-height:1.8;margin-bottom:.4rem}
     .article-body strong{font-weight:500;color:var(--text)}
     .article-body blockquote{border-left:3px solid var(--indigo);padding:.75rem 1.5rem;margin:2rem 0;background:var(--indigo-mist);border-radius:0 3px 3px 0}
     .article-body blockquote p{font-family:var(--serif);font-size:1.1rem;color:var(--text);margin-bottom:0}
@@ -91,27 +97,27 @@
     .split-block .split-text{padding:3rem 3.5rem;display:flex;flex-direction:column;justify-content:center}
     .split-text h2{font-family:var(--serif);font-size:clamp(1.5rem,2.5vw,2rem);font-weight:500;color:var(--text);line-height:1.2;margin-bottom:1.25rem}
     .split-text h3{font-family:var(--serif);font-size:clamp(1.1rem,2vw,1.3rem);font-weight:500;color:var(--text);line-height:1.2;margin:1.25rem 0 .5rem}
-    .split-text p{font-size:15px;color:var(--text2);line-height:1.75;margin-bottom:.75rem}
+    .split-text p{font-size:16.5px;color:var(--text2);line-height:1.75;margin-bottom:.75rem}
     .split-text ul{margin:0 0 1rem 1.25rem}
-    .split-text ul li{font-size:15px;color:var(--text2);line-height:1.75;margin-bottom:.3rem}
+    .split-text ul li{font-size:16.5px;color:var(--text2);line-height:1.75;margin-bottom:.3rem}
 
     .author-wrap{max-width:760px;margin:0 auto;padding:0 2.5rem 3rem}
     .author-block{display:flex;align-items:center;gap:1.5rem;padding:2rem;background:var(--indigo-mist);border:1px solid var(--border);border-radius:4px}
     .author-photo{width:72px;height:72px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--indigo-pale)}
     .author-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
     .author-info .name{font-family:var(--serif);font-size:1.1rem;font-weight:500;color:var(--text);margin-bottom:.25rem}
-    .author-info .bio{font-size:13px;color:var(--text3);line-height:1.5}
+    .author-info .bio{font-size:14.5px;color:var(--text3);line-height:1.5}
 
     .subscribe-section{padding:4rem 2.5rem;background:var(--indigo-mist);border-top:1px solid var(--border)}
     .subscribe-section .inner{max-width:560px;margin:0 auto;text-align:center}
-    .section-tag{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--indigo);font-weight:500;margin-bottom:1rem;display:block}
+    .section-tag{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--indigo);font-weight:500;margin-bottom:1rem;display:block}
     .section-title{font-family:var(--serif);font-size:clamp(1.9rem,3vw,2.4rem);font-weight:500;color:var(--text);line-height:1.15;margin-bottom:.75rem}
     .section-title em{font-style:normal;color:var(--indigo)}
 
     footer{border-top:1px solid var(--border);padding:1.5rem 2.5rem;display:flex;align-items:center;justify-content:space-between}
     .footer-name{font-family:var(--serif);font-size:1rem;font-weight:500;color:var(--text)}
     .footer-links{display:flex;gap:1.25rem}
-    .footer-links a{font-size:13px;letter-spacing:.06em;color:var(--text3);text-decoration:none;transition:color .2s}
+    .footer-links a{font-size:14.5px;letter-spacing:.06em;color:var(--text3);text-decoration:none;transition:color .2s}
     .footer-links a:hover{color:var(--indigo)}
 
     @media(max-width:900px){
@@ -271,7 +277,7 @@
   <div class="inner">
     <span class="section-tag">Підписка</span>
     <h2 class="section-title">Статті на <em>пошту</em></h2>
-    <p style="font-size:15px;color:var(--text3);margin-bottom:2rem">Нові статті одразу на твою пошту</p>
+    <p style="font-size:16.5px;color:var(--text3);margin-bottom:2rem">Нові статті одразу на твою пошту</p>
     <script async data-uid="b9fbadf156" src="https://iryna-pietrova.kit.com/b9fbadf156/index.js"></script>
   </div>
 </div>
